@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="HideAndSeek"
-run/main_scene="res://UI/StartMenu/StartMenu.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [rendering]

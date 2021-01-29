@@ -1,13 +1,15 @@
 extends Control
-signal created_pressed
-signal joined_pressed
+signal create_pressed
+signal join_pressed
 signal name_entered
+signal aaa
 
 func _on_Connection_on_create_pressed(port):
-	emit_signal("created_pressed", port)
+	emit_signal("create_pressed", port)
+	emit_signal("aaa")
 
 func _on_Connection_on_join_pressed(ip, port):
-	emit_signal("joined_pressed", ip, port)
+	emit_signal("join_pressed", ip, port)
 
 func on_player_setup_received(player_data):
 	$SetupPlayer.update_player_data(player_data)
