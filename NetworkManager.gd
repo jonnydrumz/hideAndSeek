@@ -1,13 +1,13 @@
-extends Control
+extends Node
+
+signal player_accepted
 
 onready var join_button = $JoinButton
 onready var host_button = $HostButton
 onready var peer        = null
 onready var players     = []
 
-
-const address : String = "83.173.176.43"
-const DEFAULT_PORT = 8910
+const DEFAULT_USERS = 10
 
 func _ready():
 	# Connect all the callbacks related to networking.
@@ -22,10 +22,10 @@ var player_info = {}
 # Info we send to other players
 var my_info = { name = "Jon", favorite_color = Color8(255, 0, 255) }
 
-func _on_Button_pressed():
+func create_server(port):
 	peer = NetworkedMultiplayerENet.new()
 	peer.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)
-	var err = peer.create_server(8910, 10) # Maximum of 1 peer, since it's a 2-player game.
+	var err = peer.create_server(port, DEFAULT_USERS) # Maximum of 1 peer, since it's a 2-player game.
 	if err != OK:
 		# Is another server running?
 		_set_status("Can't host, address in use.",false)
@@ -33,36 +33,34 @@ func _on_Button_pressed():
 	get_tree().set_network_peer(peer)
 	_set_status("Waiting for player...", true)
 
-	# Only show hosting instructions when relevant.
-	
-func _on_peer_connected(id):
-	players.append(id)
-	print(id) 
-	
-func _on_peer_disconnected(id):
-	players.erase(id)
-	print(id)
-	
-func _set_status(text, is_ok):
-	print(is_ok, " ", text)
-
-remote func register_player(info):
-	# Get the id of the RPC sender.
-	var id = get_tree().get_rpc_sender_id()
-	# Store the info
-	player_info[id] = info
-
-func _on_Button2_pressed():
-	var ip = address
+func join_server(ip, port):
 	if not ip.is_valid_ip_address():
 		_set_status("IP address is invalid", false)
 		return
 
 	peer = NetworkedMultiplayerENet.new()
 	peer.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)
-	peer.create_client(ip, DEFAULT_PORT)
+	peer.create_client(ip, port)
 	get_tree().set_network_peer(peer)
 	_set_status("Connecting...", true)
+	
+func _on_peer_connected(id):
+	var player = PlayerData.new()
+	player.id = id
+	players.append(player)
+	print("Connected ", id) 
+	rpc_id(id, "player_accepted")
+	
+func _on_peer_disconnected(id):
+	players.erase(id)
+	print("Disconnected ",id)
+	
+func _set_status(text, is_ok):
+	print(is_ok, " ", text)
+
+remote func player_accepted():
+	print("Player accepted")
+	emit_signal("player_accepted") 
 
 func _connected_ok():
 	print("id")
@@ -76,3 +74,15 @@ func _on_Button3_pressed():
 
 remote func hola(id):
 	print(id)
+
+remote func player_nick(id, nickname):
+	for player in players:
+		if player.id == id:
+			player.nickname = nickname
+
+func name_entered(nickname):
+	var id = get_tree().get_network_unique_id()
+	rpc("set_player_name", id, nickname)
+
+remote func set_player_name(id, nickname):
+	print("ID ",id)

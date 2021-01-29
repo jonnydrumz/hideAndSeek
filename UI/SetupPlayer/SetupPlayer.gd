@@ -15,3 +15,7 @@ func _on_Button_pressed():
 	$Button.hide()
 	$LineEdit.hide()
 	$Label2.hide()
+
+func accept_player():
+	$Wait.hide()
+	$Button.show()

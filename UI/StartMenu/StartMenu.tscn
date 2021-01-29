@@ -26,3 +26,4 @@ margin_right = -320.0
 margin_bottom = -216.0
 [connection signal="on_create_pressed" from="Connection" to="." method="_on_Connection_on_create_pressed"]
 [connection signal="on_join_pressed" from="Connection" to="." method="_on_Connection_on_join_pressed"]
+[connection signal="on_start_pressed" from="SetupPlayer" to="." method="_on_SetupPlayer_on_start_pressed"]
