@@ -3,6 +3,7 @@ extends Control
 onready var join_button = $JoinButton
 onready var host_button = $HostButton
 onready var peer        = null
+onready var players     = []
 
 const address : String = "127.0.0.1"#83.173.176.43"
 const DEFAULT_PORT = 8910
@@ -34,9 +35,11 @@ func _on_Button_pressed():
 	# Only show hosting instructions when relevant.
 	
 func _on_peer_connected(id):
+	players.append(id)
 	print(id) 
 	
 func _on_peer_disconnected(id):
+	players.erase(id)
 	print(id)
 	
 func _set_status(text, is_ok):
@@ -65,3 +68,10 @@ func _connected_ok():
 
 func _connected_fail():
 	print("id")
+
+func _on_Button3_pressed():
+	for id in players: 
+		rpc_id(id, "hola", id)
+
+remote func hola(id):
+	print(id)

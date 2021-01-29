@@ -18,10 +18,18 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 594.514
-margin_top = 225.36
-margin_right = 662.514
-margin_bottom = 245.36
+margin_left = 616.377
+margin_top = 200.133
+margin_right = 684.377
+margin_bottom = 220.133
 text = "Conectar"
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 415.403
+margin_top = 360.745
+margin_right = 464.403
+margin_bottom = 380.745
+text = "HOLA"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
