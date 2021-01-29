@@ -1,0 +1,156 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Connection/Connection.gd" type="Script" id=1]
+
+[node name="Connection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Conexion"
+
+[node name="CreateButton" type="Button" parent="."]
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -24.0
+margin_bottom = -4.0
+text = "Create"
+
+[node name="JoinButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -24.0
+margin_bottom = -4.0
+text = "Join"
+
+[node name="CreateControl" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+margin_bottom = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CreateControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -16.0
+margin_right = 64.0
+text = "Port:"
+
+[node name="LineEdit" type="LineEdit" parent="CreateControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_right = 64.0
+margin_bottom = 24.0
+placeholder_text = "1024-65535"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreateCreateButton" type="Button" parent="CreateControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = 32.0
+margin_right = 64.0
+margin_bottom = 56.0
+text = "Create"
+
+[node name="JoinControl" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+margin_bottom = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="JoinControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -16.0
+margin_right = -8.0
+text = "IP:"
+
+[node name="LineEdit" type="LineEdit" parent="JoinControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_right = -8.0
+margin_bottom = 24.0
+placeholder_text = "192.168.0.100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="JoinControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 8.0
+margin_top = -16.0
+margin_right = 136.0
+text = "Port:"
+
+[node name="LineEdit2" type="LineEdit" parent="JoinControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 8.0
+margin_right = 136.0
+margin_bottom = 24.0
+placeholder_text = "1024-65535"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoinJoinButton" type="Button" parent="JoinControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = 32.0
+margin_right = 64.0
+margin_bottom = 56.0
+text = "Join"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+visible = true
+margin_right = 94.0
+margin_bottom = 58.0
+popup_exclusive = true
+window_title = "Ouch!"
+dialog_text = "Invalid data"
+[connection signal="pressed" from="CreateButton" to="." method="_on_CreateButton_pressed"]
+[connection signal="pressed" from="JoinButton" to="." method="_on_JoinButton_pressed"]
+[connection signal="pressed" from="CreateControl/CreateCreateButton" to="." method="_on_CreateCreateButton_pressed"]
+[connection signal="pressed" from="JoinControl/JoinJoinButton" to="." method="_on_JoinJoinButton_pressed"]

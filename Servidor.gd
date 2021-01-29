@@ -5,7 +5,8 @@ onready var host_button = $HostButton
 onready var peer        = null
 onready var players     = []
 
-const address : String = "127.0.0.1"#83.173.176.43"
+
+const address : String = "83.173.176.43"
 const DEFAULT_PORT = 8910
 
 func _ready():

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/Connection/Connection.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/SetupPlayer/SetupPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/StartMenu/StartMenu.gd" type="Script" id=3]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Connection" parent="." instance=ExtResource( 1 )]
+margin_left = 256.0
+margin_top = 192.0
+margin_right = -256.0
+margin_bottom = -216.0
+
+[node name="SetupPlayer" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = 320.0
+margin_top = 192.0
+margin_right = -320.0
+margin_bottom = -216.0
+[connection signal="on_create_pressed" from="Connection" to="." method="_on_Connection_on_create_pressed"]
+[connection signal="on_join_pressed" from="Connection" to="." method="_on_Connection_on_join_pressed"]
