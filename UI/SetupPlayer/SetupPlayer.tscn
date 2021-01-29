@@ -76,4 +76,11 @@ margin_top = 32.0
 margin_right = 64.0
 margin_bottom = 52.0
 text = "OK"
+
+[node name="ItemList" type="ItemList" parent="."]
+anchor_bottom = 1.0
+margin_left = 192.0
+margin_top = 64.0
+margin_right = 384.0
+margin_bottom = -88.0
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
