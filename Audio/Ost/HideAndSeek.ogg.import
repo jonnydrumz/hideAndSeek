@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/HideAndSeek.ogg-7c34014858c8f162dc6b94f8b7b16be4.oggstr"
+
+[deps]
+
+source_file="res://Audio/Ost/HideAndSeek.ogg"
+dest_files=[ "res://.import/HideAndSeek.ogg-7c34014858c8f162dc6b94f8b7b16be4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
