@@ -1,6 +1,7 @@
 extends Node
 
 signal player_accepted
+signal player_data_received
 
 onready var join_button = $JoinButton
 onready var host_button = $HostButton
@@ -75,14 +76,16 @@ func _on_Button3_pressed():
 remote func hola(id):
 	print(id)
 
-remote func player_nick(id, nickname):
-	for player in players:
-		if player.id == id:
-			player.nickname = nickname
-
 func name_entered(nickname):
 	var id = get_tree().get_network_unique_id()
 	rpc("set_player_name", id, nickname)
 
 remote func set_player_name(id, nickname):
+	for player in players:
+		if player.id == id:
+			player.nickname = nickname
 	print("ID ",id)
+	rpc("update_player_data", players)
+	
+remote func update_player_data(players):
+	emit_signal("player_data_received")
