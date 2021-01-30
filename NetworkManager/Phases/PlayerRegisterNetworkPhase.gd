@@ -7,13 +7,13 @@ func name_entered(nickname):
 	if get_tree().is_network_server():
 		set_player_name(id, nickname)
 	else:
-		rpc("set_player_name", id, nickname)
+		rpc_id(1, "set_player_name", id, nickname)
 
 remote func set_player_name(id, nickname):
 	for player in host.players:
 		if player.id == id:
 			player.nickname = nickname
-	if get_tree().is_network_server():
+	if id == 1:
 		update_player_data(host.players)
 	else:
 		rpc("update_player_data", host.players)
