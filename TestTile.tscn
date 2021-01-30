@@ -78,57 +78,57 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Tumbas" type="Node2D" parent="Environment"]
+[node name="Graves" type="Node2D" parent="Environment"]
 
-[node name="Fila3Tumbas01" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila3Tumbas01" type="Node2D" parent="Environment/Graves"]
 position = Vector2( -561.581, -20.6633 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone06" parent="Environment/Tumbas/Fila3Tumbas01" instance=ExtResource( 3 )]
+[node name="TombStone06" parent="Environment/Graves/Fila3Tumbas01" instance=ExtResource( 3 )]
 position = Vector2( 74.1271, 279.81 )
 
-[node name="TombStone05" parent="Environment/Tumbas/Fila3Tumbas01" instance=ExtResource( 2 )]
+[node name="TombStone05" parent="Environment/Graves/Fila3Tumbas01" instance=ExtResource( 2 )]
 position = Vector2( 90.8622, 283.069 )
 
-[node name="TombStone07" parent="Environment/Tumbas/Fila3Tumbas01" instance=ExtResource( 4 )]
+[node name="TombStone07" parent="Environment/Graves/Fila3Tumbas01" instance=ExtResource( 4 )]
 position = Vector2( 107.399, 297.008 )
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila3Tumbas01" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila3Tumbas01" instance=ExtResource( 2 )]
 position = Vector2( 125.289, 299.436 )
 
-[node name="Fila3Tumbas02" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila3Tumbas02" type="Node2D" parent="Environment/Graves"]
 position = Vector2( 61.5289, -137.048 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone06" parent="Environment/Tumbas/Fila3Tumbas02" instance=ExtResource( 3 )]
+[node name="TombStone06" parent="Environment/Graves/Fila3Tumbas02" instance=ExtResource( 3 )]
 position = Vector2( 74.1271, 279.81 )
 
-[node name="TombStone05" parent="Environment/Tumbas/Fila3Tumbas02" instance=ExtResource( 2 )]
+[node name="TombStone05" parent="Environment/Graves/Fila3Tumbas02" instance=ExtResource( 2 )]
 position = Vector2( 91.7531, 283.069 )
 
-[node name="TombStone07" parent="Environment/Tumbas/Fila3Tumbas02" instance=ExtResource( 4 )]
+[node name="TombStone07" parent="Environment/Graves/Fila3Tumbas02" instance=ExtResource( 4 )]
 position = Vector2( 108.736, 297.008 )
 
-[node name="Fila3Tumbas04" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila3Tumbas04" type="Node2D" parent="Environment/Graves"]
 position = Vector2( 167.458, -89.631 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone06" parent="Environment/Tumbas/Fila3Tumbas04" instance=ExtResource( 3 )]
+[node name="TombStone06" parent="Environment/Graves/Fila3Tumbas04" instance=ExtResource( 3 )]
 position = Vector2( 21.1187, 257.092 )
 
-[node name="TombStone05" parent="Environment/Tumbas/Fila3Tumbas04" instance=ExtResource( 2 )]
+[node name="TombStone05" parent="Environment/Graves/Fila3Tumbas04" instance=ExtResource( 2 )]
 position = Vector2( 39.1901, 260.797 )
 
-[node name="TombStone07" parent="Environment/Tumbas/Fila3Tumbas04" instance=ExtResource( 4 )]
+[node name="TombStone07" parent="Environment/Graves/Fila3Tumbas04" instance=ExtResource( 4 )]
 position = Vector2( 56.1726, 274.736 )
 
-[node name="Fila4Tumbas01" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila4Tumbas01" type="Node2D" parent="Environment/Graves"]
 position = Vector2( -257.182, 255.172 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
@@ -136,19 +136,19 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas01" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas01" instance=ExtResource( 2 )]
 position = Vector2( -20.5129, -73.3726 )
 
-[node name="TombStone02" parent="Environment/Tumbas/Fila4Tumbas01" instance=ExtResource( 2 )]
+[node name="TombStone02" parent="Environment/Graves/Fila4Tumbas01" instance=ExtResource( 2 )]
 position = Vector2( -3.00862, -64.974 )
 
-[node name="TombStone03" parent="Environment/Tumbas/Fila4Tumbas01" instance=ExtResource( 2 )]
+[node name="TombStone03" parent="Environment/Graves/Fila4Tumbas01" instance=ExtResource( 2 )]
 position = Vector2( 14.523, -56.3425 )
 
-[node name="TombStone04" parent="Environment/Tumbas/Fila4Tumbas01" instance=ExtResource( 2 )]
+[node name="TombStone04" parent="Environment/Graves/Fila4Tumbas01" instance=ExtResource( 2 )]
 position = Vector2( 32, -48 )
 
-[node name="Fila4Tumbas04" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila4Tumbas04" type="Node2D" parent="Environment/Graves"]
 position = Vector2( -42.7533, 140.81 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
@@ -156,19 +156,19 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas04" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas04" instance=ExtResource( 2 )]
 position = Vector2( -20.5129, -73.3726 )
 
-[node name="TombStone02" parent="Environment/Tumbas/Fila4Tumbas04" instance=ExtResource( 2 )]
+[node name="TombStone02" parent="Environment/Graves/Fila4Tumbas04" instance=ExtResource( 2 )]
 position = Vector2( -3.00862, -64.974 )
 
-[node name="TombStone03" parent="Environment/Tumbas/Fila4Tumbas04" instance=ExtResource( 2 )]
+[node name="TombStone03" parent="Environment/Graves/Fila4Tumbas04" instance=ExtResource( 2 )]
 position = Vector2( 14.523, -56.3425 )
 
-[node name="TombStone04" parent="Environment/Tumbas/Fila4Tumbas04" instance=ExtResource( 2 )]
+[node name="TombStone04" parent="Environment/Graves/Fila4Tumbas04" instance=ExtResource( 2 )]
 position = Vector2( 32, -48 )
 
-[node name="Fila4Tumbas07" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila4Tumbas07" type="Node2D" parent="Environment/Graves"]
 position = Vector2( 284.251, 329.71 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
@@ -176,64 +176,64 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas07" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas07" instance=ExtResource( 2 )]
 position = Vector2( -20.5129, -73.3726 )
 
-[node name="TombStone02" parent="Environment/Tumbas/Fila4Tumbas07" instance=ExtResource( 2 )]
+[node name="TombStone02" parent="Environment/Graves/Fila4Tumbas07" instance=ExtResource( 2 )]
 position = Vector2( -3.00862, -64.974 )
 
-[node name="TombStone03" parent="Environment/Tumbas/Fila4Tumbas07" instance=ExtResource( 2 )]
+[node name="TombStone03" parent="Environment/Graves/Fila4Tumbas07" instance=ExtResource( 2 )]
 position = Vector2( 14.523, -56.3425 )
 
-[node name="TombStone04" parent="Environment/Tumbas/Fila4Tumbas07" instance=ExtResource( 2 )]
+[node name="TombStone04" parent="Environment/Graves/Fila4Tumbas07" instance=ExtResource( 2 )]
 position = Vector2( 32, -48 )
 
-[node name="Fila4Tumbas08" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila4Tumbas08" type="Node2D" parent="Environment/Graves"]
 position = Vector2( -295.251, 470.218 )
 rotation = -1.74846e-07
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas08" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas08" instance=ExtResource( 2 )]
 position = Vector2( -20.5129, -73.3726 )
 
-[node name="TombStone02" parent="Environment/Tumbas/Fila4Tumbas08" instance=ExtResource( 2 )]
+[node name="TombStone02" parent="Environment/Graves/Fila4Tumbas08" instance=ExtResource( 2 )]
 position = Vector2( -3.00862, -64.974 )
 
-[node name="TombStone03" parent="Environment/Tumbas/Fila4Tumbas08" instance=ExtResource( 2 )]
+[node name="TombStone03" parent="Environment/Graves/Fila4Tumbas08" instance=ExtResource( 2 )]
 position = Vector2( 14.523, -56.3425 )
 
-[node name="TombStone04" parent="Environment/Tumbas/Fila4Tumbas08" instance=ExtResource( 2 )]
+[node name="TombStone04" parent="Environment/Graves/Fila4Tumbas08" instance=ExtResource( 2 )]
 position = Vector2( 32, -48 )
 
-[node name="Fila4Tumbas05" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila4Tumbas05" type="Node2D" parent="Environment/Graves"]
 position = Vector2( 204.154, 53.3388 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone08" parent="Environment/Tumbas/Fila4Tumbas05" instance=ExtResource( 3 )]
+[node name="TombStone08" parent="Environment/Graves/Fila4Tumbas05" instance=ExtResource( 3 )]
 position = Vector2( -74.4206, 308.895 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="TombStone09" parent="Environment/Tumbas/Fila4Tumbas05" instance=ExtResource( 2 )]
+[node name="TombStone09" parent="Environment/Graves/Fila4Tumbas05" instance=ExtResource( 2 )]
 position = Vector2( -91.9052, 311.674 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="TombStone10" parent="Environment/Tumbas/Fila4Tumbas05" instance=ExtResource( 4 )]
+[node name="TombStone10" parent="Environment/Graves/Fila4Tumbas05" instance=ExtResource( 4 )]
 position = Vector2( -107.855, 326.299 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas05" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas05" instance=ExtResource( 2 )]
 position = Vector2( -125.909, 328.463 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="Fila4Tumbas06" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila4Tumbas06" type="Node2D" parent="Environment/Graves"]
 position = Vector2( -227.041, -18.8241 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
@@ -241,35 +241,35 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone08" parent="Environment/Tumbas/Fila4Tumbas06" instance=ExtResource( 3 )]
+[node name="TombStone08" parent="Environment/Graves/Fila4Tumbas06" instance=ExtResource( 3 )]
 position = Vector2( -74.4206, 308.895 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="TombStone09" parent="Environment/Tumbas/Fila4Tumbas06" instance=ExtResource( 2 )]
+[node name="TombStone09" parent="Environment/Graves/Fila4Tumbas06" instance=ExtResource( 2 )]
 position = Vector2( -91.9052, 311.674 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="TombStone10" parent="Environment/Tumbas/Fila4Tumbas06" instance=ExtResource( 4 )]
+[node name="TombStone10" parent="Environment/Graves/Fila4Tumbas06" instance=ExtResource( 4 )]
 position = Vector2( -107.855, 326.299 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas06" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas06" instance=ExtResource( 2 )]
 position = Vector2( -125.909, 328.463 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="TombStone01" parent="Environment/Tumbas" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves" instance=ExtResource( 2 )]
 position = Vector2( 140.892, 219.603 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="TombStone02" parent="Environment/Tumbas" instance=ExtResource( 3 )]
+[node name="TombStone02" parent="Environment/Graves" instance=ExtResource( 3 )]
 position = Vector2( -59.4166, 176.625 )
 
-[node name="Fila4Tumbas12" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila4Tumbas12" type="Node2D" parent="Environment/Graves"]
 position = Vector2( 108.744, 576.489 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
@@ -277,25 +277,25 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas12" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas12" instance=ExtResource( 2 )]
 position = Vector2( -20.5129, -73.3726 )
 
-[node name="TombStone02" parent="Environment/Tumbas/Fila4Tumbas12" instance=ExtResource( 2 )]
+[node name="TombStone02" parent="Environment/Graves/Fila4Tumbas12" instance=ExtResource( 2 )]
 position = Vector2( -3.00862, -64.974 )
 
-[node name="TombStone03" parent="Environment/Tumbas/Fila4Tumbas12" instance=ExtResource( 2 )]
+[node name="TombStone03" parent="Environment/Graves/Fila4Tumbas12" instance=ExtResource( 2 )]
 position = Vector2( 14.523, -56.3425 )
 
-[node name="TombStone04" parent="Environment/Tumbas/Fila4Tumbas12" instance=ExtResource( 2 )]
+[node name="TombStone04" parent="Environment/Graves/Fila4Tumbas12" instance=ExtResource( 2 )]
 position = Vector2( 32, -48 )
 
-[node name="TombStone07" parent="Environment/Tumbas" instance=ExtResource( 3 )]
+[node name="TombStone07" parent="Environment/Graves" instance=ExtResource( 3 )]
 position = Vector2( -96.8343, 476.858 )
 
-[node name="TombStone03" parent="Environment/Tumbas" instance=ExtResource( 4 )]
+[node name="TombStone03" parent="Environment/Graves" instance=ExtResource( 4 )]
 position = Vector2( 173.027, 39.6851 )
 
-[node name="Fila4Tumbas02" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila4Tumbas02" type="Node2D" parent="Environment/Graves"]
 position = Vector2( 273.794, 447.606 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
@@ -303,125 +303,125 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas02" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas02" instance=ExtResource( 2 )]
 position = Vector2( -20.5129, -73.3726 )
 
-[node name="TombStone02" parent="Environment/Tumbas/Fila4Tumbas02" instance=ExtResource( 2 )]
+[node name="TombStone02" parent="Environment/Graves/Fila4Tumbas02" instance=ExtResource( 2 )]
 position = Vector2( -3.00862, -64.974 )
 
-[node name="TombStone03" parent="Environment/Tumbas/Fila4Tumbas02" instance=ExtResource( 2 )]
+[node name="TombStone03" parent="Environment/Graves/Fila4Tumbas02" instance=ExtResource( 2 )]
 position = Vector2( 14.523, -56.3425 )
 
-[node name="TombStone04" parent="Environment/Tumbas/Fila4Tumbas02" instance=ExtResource( 2 )]
+[node name="TombStone04" parent="Environment/Graves/Fila4Tumbas02" instance=ExtResource( 2 )]
 position = Vector2( 32, -48 )
 
-[node name="Fila4Tumbas09" type="Node2D" parent="Environment/Tumbas"]
-position = Vector2( 488.222, 333.244 )
+[node name="Fila4Tumbas09" type="Node2D" parent="Environment/Graves"]
+position = Vector2( 575.926, 376.947 )
 rotation = 3.14159
-scale = Vector2( 1, -1 )
-__meta__ = {
-"_edit_group_": true
-}
+scale = Vector2( -1, -1 )
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas09" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas09" instance=ExtResource( 2 )]
 position = Vector2( -20.5129, -73.3726 )
 
-[node name="TombStone02" parent="Environment/Tumbas/Fila4Tumbas09" instance=ExtResource( 2 )]
+[node name="TombStone02" parent="Environment/Graves/Fila4Tumbas09" instance=ExtResource( 2 )]
 position = Vector2( -3.00862, -64.974 )
 
-[node name="TombStone03" parent="Environment/Tumbas/Fila4Tumbas09" instance=ExtResource( 2 )]
-position = Vector2( 14.523, -56.3425 )
+[node name="TombStone03" parent="Environment/Graves/Fila4Tumbas09" instance=ExtResource( 2 )]
+position = Vector2( -256.319, -69.4244 )
 
-[node name="TombStone04" parent="Environment/Tumbas/Fila4Tumbas09" instance=ExtResource( 2 )]
+[node name="TombStone04" parent="Environment/Graves/Fila4Tumbas09" instance=ExtResource( 2 )]
 position = Vector2( 32, -48 )
 
-[node name="Fila4Tumbas10" type="Node2D" parent="Environment/Tumbas"]
-position = Vector2( 447.286, 453.545 )
+[node name="Fila4Tumbas10" type="Node2D" parent="Environment/Graves"]
+position = Vector2( 334.014, 447.896 )
 rotation = -1.74846e-07
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas10" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas10" instance=ExtResource( 2 )]
 position = Vector2( -20.5129, -73.3726 )
 
-[node name="TombStone02" parent="Environment/Tumbas/Fila4Tumbas10" instance=ExtResource( 2 )]
+[node name="TombStone02" parent="Environment/Graves/Fila4Tumbas10" instance=ExtResource( 2 )]
 position = Vector2( -3.00862, -64.974 )
 
-[node name="TombStone03" parent="Environment/Tumbas/Fila4Tumbas10" instance=ExtResource( 2 )]
+[node name="TombStone03" parent="Environment/Graves/Fila4Tumbas10" instance=ExtResource( 2 )]
 position = Vector2( 14.523, -56.3425 )
 
-[node name="TombStone04" parent="Environment/Tumbas/Fila4Tumbas10" instance=ExtResource( 2 )]
+[node name="TombStone04" parent="Environment/Graves/Fila4Tumbas10" instance=ExtResource( 2 )]
 position = Vector2( 32, -48 )
 
-[node name="Fila4Tumbas11" type="Node2D" parent="Environment/Tumbas"]
+[node name="Fila4Tumbas11" type="Node2D" parent="Environment/Graves"]
 position = Vector2( 278.487, 602.071 )
 rotation = -1.74846e-07
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TombStone01" parent="Environment/Tumbas/Fila4Tumbas11" instance=ExtResource( 2 )]
+[node name="TombStone01" parent="Environment/Graves/Fila4Tumbas11" instance=ExtResource( 2 )]
 position = Vector2( -20.5129, -73.3726 )
 
-[node name="TombStone02" parent="Environment/Tumbas/Fila4Tumbas11" instance=ExtResource( 2 )]
+[node name="TombStone02" parent="Environment/Graves/Fila4Tumbas11" instance=ExtResource( 2 )]
 position = Vector2( -3.00862, -64.974 )
 
-[node name="TombStone03" parent="Environment/Tumbas/Fila4Tumbas11" instance=ExtResource( 2 )]
+[node name="TombStone03" parent="Environment/Graves/Fila4Tumbas11" instance=ExtResource( 2 )]
 position = Vector2( 14.523, -56.3425 )
 
-[node name="TombStone04" parent="Environment/Tumbas/Fila4Tumbas11" instance=ExtResource( 2 )]
+[node name="TombStone04" parent="Environment/Graves/Fila4Tumbas11" instance=ExtResource( 2 )]
 position = Vector2( 32, -48 )
 
-[node name="TombStone04" parent="Environment/Tumbas" instance=ExtResource( 2 )]
+[node name="TombStone04" parent="Environment/Graves" instance=ExtResource( 2 )]
 position = Vector2( 393.907, 143.876 )
 
-[node name="TombStone05" parent="Environment/Tumbas" instance=ExtResource( 3 )]
+[node name="TombStone05" parent="Environment/Graves" instance=ExtResource( 3 )]
 position = Vector2( 359.306, 456.367 )
 
-[node name="TombStone06" parent="Environment/Tumbas" instance=ExtResource( 4 )]
+[node name="TombStone06" parent="Environment/Graves" instance=ExtResource( 4 )]
 position = Vector2( -72.8613, 641.933 )
 
-[node name="Suelo" type="Node2D" parent="Environment"]
+[node name="Misc" type="Node2D" parent="Environment"]
 
-[node name="Grass" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( 19.7615, 266.977 )
 
-[node name="Grass2" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass2" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( 20.9448, 306.031 )
 
-[node name="Grass3" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass3" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( -84.4141, 251.583 )
 
-[node name="Grass4" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass4" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( 0.792267, 202.439 )
 
-[node name="Grass5" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass5" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( 63.3712, 214.107 )
 
-[node name="Grass6" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass6" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( -121.891, 377.448 )
 
-[node name="Grass7" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass7" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( 48.1684, 447.805 )
 
-[node name="Grass8" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass8" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( 297.777, 168.498 )
 
-[node name="Grass9" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass9" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( -175.984, 143.75 )
 
-[node name="Grass10" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass10" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( -253.766, 295.07 )
 
-[node name="Grass11" parent="Environment/Suelo" instance=ExtResource( 6 )]
+[node name="Grass11" parent="Environment/Misc" instance=ExtResource( 6 )]
 position = Vector2( 361.77, 335.022 )
 
-[node name="Stone" parent="Environment/Suelo" instance=ExtResource( 5 )]
+[node name="Stone" parent="Environment/Misc" instance=ExtResource( 5 )]
 position = Vector2( -89.7174, 327.951 )
 
-[node name="Stone2" parent="Environment/Suelo" instance=ExtResource( 5 )]
-position = Vector2( -27.8456, 243.452 )
+[node name="Stone2" parent="Environment/Misc" instance=ExtResource( 5 )]
+position = Vector2( -24.9321, 259.344 )
 
-[node name="Stone3" parent="Environment/Suelo" instance=ExtResource( 5 )]
+[node name="Stone3" parent="Environment/Misc" instance=ExtResource( 5 )]
 position = Vector2( -253.059, 438.613 )
+
+[node name="Stone4" parent="Environment/Misc" instance=ExtResource( 5 )]
+position = Vector2( 181.294, 298.179 )

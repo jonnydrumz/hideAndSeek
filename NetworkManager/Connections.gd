@@ -59,10 +59,7 @@ func _on_peer_connected(id):
 			}
 	emit_signal("player_data_created", data)
 	print("Connected ",id)
-	if get_tree().is_network_server():
-		_player_accepted()
-	else:
-		rpc_id(data.id, "_player_accepted")
+	rpc_id(data.id, "_player_accepted")
 
 remote func _player_accepted():
 	print("Player accepted")
