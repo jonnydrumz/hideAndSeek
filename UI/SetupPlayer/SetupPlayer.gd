@@ -2,7 +2,7 @@ extends Control
 
 signal on_start_pressed(nickname)
 
-onready var my_name : String = "null"
+onready var my_name = null
 
 func update_player_data(player_data):
 	$Wait.hide()
@@ -27,6 +27,7 @@ func _on_SetNickButton_pressed():
 	$Label2.hide()
 
 func accept_player():
+	if my_name != null: return
 	$Wait.hide()
 	$SetNickButton.show()
 
