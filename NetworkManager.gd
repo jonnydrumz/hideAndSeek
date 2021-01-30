@@ -4,8 +4,6 @@ signal player_accepted
 signal player_data_received
 signal connection_failed(reason)
 
-onready var join_button = $JoinButton
-onready var host_button = $HostButton
 onready var peer        = null
 onready var players     = []
 
@@ -25,8 +23,9 @@ func create_server(port):
 	if err != OK:
 		emit_signal("connection_failed", "Address in use")
 		return
-	get_tree().set_network_peer(peer)
 	_set_status("Waiting for player...", true)
+	get_tree().set_network_peer(peer)
+	_create_player_server()
 
 func join_server(ip, port):
 	if not ip.is_valid_ip_address():
@@ -38,7 +37,18 @@ func join_server(ip, port):
 	peer.create_client(ip, port)
 	get_tree().set_network_peer(peer)
 	_set_status("Connecting...", true)
-	
+
+func _create_player_server():
+	players.append(
+		{
+			"id": get_tree().get_network_unique_id(),
+			"nickname": "",
+			"type": -1,
+			"pos_x": 0.0,
+			"pos_y": 0.0,
+		})
+	player_accepted()
+
 func _on_peer_connected(id):
 	players.append(
 		{
@@ -70,23 +80,21 @@ func _connected_ok():
 func _connected_fail():
 	print("id")
 
-func _on_Button3_pressed():
-	for id in players: 
-		rpc_id(id, "hola", id)
-		
-remote func hola(id):
-	print(id)
-
 func name_entered(nickname):
 	var id = get_tree().get_network_unique_id()
-	rpc("set_player_name", id, nickname)
+	if get_tree().is_network_server():
+		set_player_name(id, nickname)
+	else:
+		rpc("set_player_name", id, nickname)
 
 remote func set_player_name(id, nickname):
 	for player in players:
 		if player.id == id:
 			player.nickname = nickname
-	print("ID ",id)
-	rpc("update_player_data", players)
+	if get_tree().is_network_server():
+		update_player_data(players)
+	else:
+		rpc("update_player_data", players)
 	
 remote func update_player_data(players):
 	emit_signal("player_data_received", players)
