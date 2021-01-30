@@ -18,3 +18,4 @@ func _on_Timer_timeout():
 			rand_range(min_y, max_y))
 	audio_instance.stream = audio_streams[randi() % audio_streams.size()]
 	add_child(audio_instance)
+	audio_instance.play()
