@@ -2,6 +2,7 @@ extends Node
 
 signal player_accepted
 signal player_data_received
+signal connection_failed(reason)
 
 onready var join_button = $JoinButton
 onready var host_button = $HostButton
@@ -11,32 +12,25 @@ onready var players     = []
 const DEFAULT_USERS = 10
 
 func _ready():
-	# Connect all the callbacks related to networking.
 	get_tree().connect("network_peer_connected", self, "_on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "_on_peer_disconnected")
 	get_tree().connect("connected_to_server", self, "_connected_ok")
 	get_tree().connect("connection_failed", self, "_connected_fail")
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
 
-# Player info, associate ID to data
-var player_info = {}
-# Info we send to other players
-var my_info = { name = "Jon", favorite_color = Color8(255, 0, 255) }
-
 func create_server(port):
 	peer = NetworkedMultiplayerENet.new()
 	peer.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)
 	var err = peer.create_server(port, DEFAULT_USERS) # Maximum of 1 peer, since it's a 2-player game.
 	if err != OK:
-		# Is another server running?
-		_set_status("Can't host, address in use.",false)
+		emit_signal("connection_failed", "Address in use")
 		return
 	get_tree().set_network_peer(peer)
 	_set_status("Waiting for player...", true)
 
 func join_server(ip, port):
 	if not ip.is_valid_ip_address():
-		_set_status("IP address is invalid", false)
+		emit_signal("connection_failed", "IP address is invalid")
 		return
 
 	peer = NetworkedMultiplayerENet.new()
