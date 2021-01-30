@@ -3,6 +3,8 @@ extends Node
 signal player_data_created(data)
 signal player_data_erased(id)
 
+onready var host = get_parent()
+
 onready var peer        = null
 
 const DEFAULT_USERS = 10
@@ -10,8 +12,6 @@ const DEFAULT_USERS = 10
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "_on_peer_disconnected")
-	get_tree().connect("connected_to_server", self, "_connected_ok")
-	get_tree().connect("connection_failed", self, "_connected_fail")
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
 
 func create_server(port):
@@ -36,25 +36,38 @@ func join_server(ip, port):
 	print("Connecting...")
 
 func _create_player_server():
-	emit_signal("player_data_created",
-			{
+	var data = {
 				"id": get_tree().get_network_unique_id(),
 				"nickname": "",
 				"type": -1,
 				"pos_x": 0.0,
 				"pos_y": 0.0,
-			})
+			}
+	emit_signal("player_data_created", data)
+	if get_tree().is_network_server():
+		_player_accepted()
+	else:
+		rpc_id(data.id, "_player_accepted")
 
 func _on_peer_connected(id):
-	emit_signal("player_data_created", 
-			{
+	var data = {
 				"id": id,
 				"nickname": "",
 				"type": -1,
 				"pos_x": 0.0,
 				"pos_y": 0.0,
-			})
+			}
+	emit_signal("player_data_created", data)
 	print("Connected ",id)
+	if get_tree().is_network_server():
+		_player_accepted()
+	else:
+		rpc_id(data.id, "_player_accepted")
+
+remote func _player_accepted():
+	print("Player accepted")
+	host.emit_signal("player_accepted") 
+	
 
 func _on_peer_disconnected(id):
 	emit_signal("player_data_erased", id)

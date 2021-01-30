@@ -2,10 +2,6 @@ extends Node
 
 onready var host = get_parent()
 
-remote func player_accepted():
-	print("Player accepted")
-	host.emit_signal("player_accepted") 
-
 func name_entered(nickname):
 	var id = get_tree().get_network_unique_id()
 	if get_tree().is_network_server():
