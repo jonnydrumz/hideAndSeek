@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Level.tscn" type="PackedScene" id=2]
@@ -8,6 +8,21 @@
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GhostBusterManager.gd" type="Script" id=7]
 [ext_resource path="res://Audio/Ost/HideAndSeek.ogg" type="AudioStream" id=8]
+[ext_resource path="res://SoundLocatorManager.gd" type="Script" id=9]
+[ext_resource path="res://FakeAudio/FakeAudio.tscn" type="PackedScene" id=10]
+[ext_resource path="res://FakeSoundGenerator.gd" type="Script" id=11]
+[ext_resource path="res://Audio/Sfx/FakeSounds/Cat03.wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio/Sfx/FakeSounds/Cat02.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio/Sfx/FakeSounds/Cat01.wav" type="AudioStream" id=14]
+[ext_resource path="res://Textures/ruido_0001_Capa-5-copia-2.png" type="Texture" id=15]
+[ext_resource path="res://EaredSound.gd" type="Script" id=16]
+[ext_resource path="res://Textures/ruido_0002_Capa-5-copia.png" type="Texture" id=17]
+[ext_resource path="res://Textures/ruido_0003_Capa-5.png" type="Texture" id=18]
+[ext_resource path="res://Textures/ruido_0004_Capa-6-copia-2.png" type="Texture" id=19]
+[ext_resource path="res://Textures/ruido_0005_Capa-6-copia-2.png" type="Texture" id=20]
+[ext_resource path="res://Textures/ruido_0007_Capa-6.png" type="Texture" id=21]
+[ext_resource path="res://Textures/ruido_0006_Capa-6-copia.png" type="Texture" id=22]
+[ext_resource path="res://Textures/ruido_0000_Capa-5-copia-3.png" type="Texture" id=23]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -26,6 +41,20 @@ script = ExtResource( 1 )
 "GBM",
 ]]
 script = ExtResource( 7 )
+
+[node name="SoundLocatorManager" type="Node" parent="." groups=[
+"SLM",
+]]
+script = ExtResource( 9 )
+player_nodepath = NodePath("../Ingame/Level/Player")
+
+[node name="FakeSoundGenerator" type="Node2D" parent="."]
+script = ExtResource( 11 )
+audio_template = ExtResource( 10 )
+audio_streams = [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ) ]
+
+[node name="Timer" type="Timer" parent="FakeSoundGenerator"]
+autostart = true
 
 [node name="Ingame" type="Node2D" parent="."]
 
@@ -87,10 +116,91 @@ texture = ExtResource( 4 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
-[node name="TodoNegro" type="Sprite" parent="Ingame/Level/Player/Camera2D"]
+[node name="CameraCosas" type="Node2D" parent="Ingame/Level/Player/Camera2D"]
+
+[node name="TodoNegro" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas"]
 scale = Vector2( 0.5, 0.5 )
 z_index = 50
 texture = ExtResource( 5 )
+
+[node name="EaredUp" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+position = Vector2( 0, -88 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 18 )
+script = ExtResource( 16 )
+
+[node name="EaredDown" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+position = Vector2( 0, 88 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 17 )
+script = ExtResource( 16 )
+direction = 1
+
+[node name="EaredLeft" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+position = Vector2( -192, 0 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 15 )
+script = ExtResource( 16 )
+direction = 2
+
+[node name="EaredRight" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+position = Vector2( 192, 0 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 23 )
+script = ExtResource( 16 )
+direction = 3
+
+[node name="EaredUpLeft" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+position = Vector2( -48, 24 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 20 )
+script = ExtResource( 16 )
+direction = 4
+
+[node name="EaredUpRight" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+position = Vector2( 48, 24 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 19 )
+script = ExtResource( 16 )
+direction = 5
+
+[node name="EaredDownLeft" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+position = Vector2( -48, -24 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 21 )
+script = ExtResource( 16 )
+direction = 6
+
+[node name="EaredDownRight" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+position = Vector2( 48, -24 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 22 )
+script = ExtResource( 16 )
+direction = 7
 
 [node name="Enemy" parent="Ingame/Level" instance=ExtResource( 6 )]
 position = Vector2( -72, 48 )
@@ -99,3 +209,4 @@ position = Vector2( -72, 48 )
 stream = ExtResource( 8 )
 volume_db = -6.0
 autoplay = true
+[connection signal="timeout" from="FakeSoundGenerator/Timer" to="FakeSoundGenerator" method="_on_Timer_timeout"]
