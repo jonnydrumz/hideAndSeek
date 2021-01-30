@@ -47,5 +47,5 @@ func _on_TimerSteps_timeout():
 		step.is_left = false
 	steps_counter = steps_counter + 1
 	step.global_position = global_position
-	step.rotation = current_tomb.rotation
+	step.rotation = current_tomb.global_position.angle_to(global_position)
 	get_parent().add_child(step)
