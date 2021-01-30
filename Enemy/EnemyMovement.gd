@@ -10,60 +10,52 @@ onready var tween := $Tween
 onready var visibilization_tween := $VisibilizationTween
 onready var steps_counter = 0
 onready var enemy_visible = true
+onready var walking : bool = false
 
 var tombs
 var current_tomb
-var rng = RandomNumberGenerator.new()
 var seconds
-var tomb_rotation
-var step_rotation
 
 func _ready():
+	yield(get_tree().create_timer(rand_range(.25, 4.0)), "timeout")
 	tombs = get_tree().get_nodes_in_group("TOMB")
 	if tombs.size() > 0:
 		call_deferred("movement")
 		$TimerSteps.start()
 		$TimerShow.start(rand_range(3.0,6.0))
 
-
 func _on_Tween_tween_all_completed():
 	$Timer.start(rand_range(5.0, 15.0))
 	$SFX.stop()
 	$Ghost.hide()
 	enemy_visible = false
+	walking = false
 
 func _on_Timer_timeout():
 	movement()
 	$TimerShow.start(rand_range(3.0,6.0))
-	
 
 func movement():
-	rng.randomize()
 	$SFX.play()
-	current_tomb = tombs[rng.randi() % tombs.size()]
-	var length = position.distance_to(current_tomb.global_position)
-	tomb_rotation = current_tomb.global_position.angle_to(global_position)
-	seconds = position.distance_to(current_tomb.global_position) / seconds_to_arrive
-	tween.interpolate_property(self, "position", position, current_tomb.global_position, seconds, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	current_tomb = tombs[randi() % tombs.size()]
+#	print(current_tomb.global_position)
+	var length = global_position.distance_to(current_tomb.global_position)
+	seconds = global_position.distance_to(current_tomb.global_position) / seconds_to_arrive
+	tween.interpolate_property(self, "global_position", global_position, current_tomb.global_position, seconds, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.interpolate_property($SFX, "volume_db", 0, -10, transition_duration, transition_type, Tween.EASE_IN, 0)
 	tween.start()
-
+	walking = true
 
 func _on_TimerSteps_timeout():
-	var step = steps.instance()
-	if (steps_counter % 2 == 0):
-		step.is_left = true
-	else:
-		step.is_left = false
-	steps_counter = steps_counter + 1
-	step.global_position = global_position
-	tomb_rotation = current_tomb.global_position
-	var global = global_position
-	var tumba = current_tomb.global_position
-	step_rotation = rad2deg(step.global_position.angle_to(current_tomb.global_position))
-	step.rotation = rad2deg(global_position.angle_to(current_tomb.global_position))
-	get_parent().add_child(step)
-
+	if walking:
+		var step = steps.instance()
+		if (steps_counter % 2 == 0):
+			step.is_left = true
+		else:
+			step.is_left = false
+		steps_counter = steps_counter + 1
+		get_parent().add_child(step)
+		step.rot_pos(global_position, current_tomb.global_position)
 
 func _on_TimerShow_timeout():
 	if enemy_visible:

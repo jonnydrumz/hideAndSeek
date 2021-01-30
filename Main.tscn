@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ProceduralLevel.tscn" type="PackedScene" id=2]
@@ -24,16 +24,7 @@
 [ext_resource path="res://Textures/Player/ruido_0006_Capa-6-copia.png" type="Texture" id=22]
 [ext_resource path="res://Textures/Player/ruido_0000_Capa-5-copia-3.png" type="Texture" id=23]
 [ext_resource path="res://Ground.gd" type="Script" id=24]
-
-
-
-
-
-
-
-
-
-
+[ext_resource path="res://EnemyGenerator.gd" type="Script" id=25]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -47,6 +38,13 @@ glow_bicubic_upscale = true
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
+
+[node name="EnemyGenerator" type="Node" parent="."]
+script = ExtResource( 25 )
+enemy_template = ExtResource( 6 )
+enemy_count_to_start = 30
+radius = 256
+destination_nodepath = NodePath("../Ingame/ProceduralLevel")
 
 [node name="GhostBusterManager" type="Node" parent="." groups=[
 "GBM",
@@ -179,9 +177,6 @@ z_index = 50
 texture = ExtResource( 22 )
 script = ExtResource( 16 )
 direction = 7
-
-[node name="Enemy" parent="Ingame/ProceduralLevel" instance=ExtResource( 6 )]
-position = Vector2( -72, 48 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource( 8 )
