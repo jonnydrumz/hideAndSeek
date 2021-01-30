@@ -64,7 +64,8 @@ environment = SubResource( 1 )
 
 [node name="Ground" type="Node2D" parent="Ingame"]
 script = ExtResource( 24 )
-width = 6
+width = 4
+height = 4
 floor_texture = ExtResource( 4 )
 
 [node name="ProceduralLevel" parent="Ingame" instance=ExtResource( 2 )]
@@ -78,6 +79,7 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="CameraCosas" type="Node2D" parent="Ingame/ProceduralLevel/Player/Camera2D"]
 
 [node name="TodoNegro" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas"]
+visible = false
 scale = Vector2( 0.5, 0.5 )
 z_index = 50
 texture = ExtResource( 5 )
@@ -85,6 +87,7 @@ texture = ExtResource( 5 )
 [node name="EaredUp" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
+visible = false
 position = Vector2( 0, -88 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -94,6 +97,7 @@ script = ExtResource( 16 )
 [node name="EaredDown" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
+visible = false
 position = Vector2( 0, 88 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -104,6 +108,7 @@ direction = 1
 [node name="EaredLeft" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
+visible = false
 position = Vector2( -192, 0 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -114,6 +119,7 @@ direction = 2
 [node name="EaredRight" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
+visible = false
 position = Vector2( 192, 0 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -124,6 +130,7 @@ direction = 3
 [node name="EaredUpLeft" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
+visible = false
 position = Vector2( -48, 24 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -134,6 +141,7 @@ direction = 4
 [node name="EaredUpRight" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
+visible = false
 position = Vector2( 48, 24 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -144,6 +152,7 @@ direction = 5
 [node name="EaredDownLeft" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
+visible = false
 position = Vector2( -48, -24 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -154,6 +163,7 @@ direction = 6
 [node name="EaredDownRight" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
+visible = false
 position = Vector2( 48, -24 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50

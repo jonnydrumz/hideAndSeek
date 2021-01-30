@@ -51,3 +51,9 @@ func _animate(delta : float):
 
 func _lamp_turn_on():
 	lamplight.turn_on()
+
+func _respawn():
+	global_position = Vector2.ZERO
+
+func _ready():
+	call_deferred("_respawn")

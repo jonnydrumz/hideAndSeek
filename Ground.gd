@@ -14,8 +14,9 @@ func _ready():
 			pos.y -= 208.0
 		pos.y = (y + 1) * 208.0
 		pos.x = 416.0 * (y + 1)
-#		pos.x = -y * 416.0
-#		pos.x = 0 if (y % 2) == 1 else 416
+
+	position.x = -width * 312.0
+#	position.y = -height * 208.0
 
 func _new_tile(pos : Vector2) -> Sprite:
 	var spr : Sprite = Sprite.new()

@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ProceduralLevel.gd" type="Script" id=1]
 [ext_resource path="res://Matrix.gd" type="Script" id=2]
+[ext_resource path="res://Walls/TombStone02.res" type="PackedScene" id=3]
+[ext_resource path="res://Walls/Limit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Walls/TombStone03.res" type="PackedScene" id=5]
+[ext_resource path="res://Walls/TombStone01_R.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Walls/TombStone02_R.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Walls/TombStone03_R.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Walls/Limit_R.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Walls/Stone.res" type="PackedScene" id=10]
+[ext_resource path="res://Walls/Grass01.res" type="PackedScene" id=11]
+[ext_resource path="res://Walls/Grass02.res" type="PackedScene" id=12]
 
 [node name="ProceduralLevel" type="YSort"]
 script = ExtResource( 1 )
+templates = [ ExtResource( 4 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ) ]
 
 [node name="Matrix" type="Node" parent="."]
 script = ExtResource( 2 )
+amount = 0.05
