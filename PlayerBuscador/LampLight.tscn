@@ -14,5 +14,12 @@ script = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 7.45779, -4.12414, 105.716, -53.1789, 112.405, -44.5572, 121.176, -25.2326, 124.297, -9.62423, 125.338, -0.110569, 123.851, 13.4167, 121.027, 26.2006, 116.27, 36.7549, 111.216, 45.5253, 105.567, 52.6605, 6.71454, 5.24087 )
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

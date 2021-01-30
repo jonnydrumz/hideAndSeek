@@ -31,3 +31,7 @@ func _on_Timer_timeout():
 	if time <= 0:
 		timer.stop()
 		ready = true
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("GHOST"):
+		print("CAZADO")
