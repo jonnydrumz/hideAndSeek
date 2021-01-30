@@ -51,6 +51,7 @@ func _create_player_server():
 		rpc_id(id, "_player_accepted", id)
 
 func _on_peer_connected(id):
+	if id != get_tree().get_network_unique_id(): return
 	var data = {
 				"id": id,
 				"nickname": "",
