@@ -46,14 +46,21 @@ func join_server(ip, port):
 	_set_status("Connecting...", true)
 	
 func _on_peer_connected(id):
-	var player = PlayerData.new()
-	player.id = id
-	players.append(player)
+	players.append(
+		{
+			"id": id,
+			"nickname": "",
+			"type": -1,
+			"pos_x": 0.0,
+			"pos_y": 0.0,
+		})
 	print("Connected ", id) 
 	rpc_id(id, "player_accepted")
 	
 func _on_peer_disconnected(id):
-	players.erase(id)
+	for player in players:
+		if player.id == id:
+			players.erase(player)
 	print("Disconnected ",id)
 	
 func _set_status(text, is_ok):
@@ -88,4 +95,4 @@ remote func set_player_name(id, nickname):
 	rpc("update_player_data", players)
 	
 remote func update_player_data(players):
-	emit_signal("player_data_received")
+	emit_signal("player_data_received", players)

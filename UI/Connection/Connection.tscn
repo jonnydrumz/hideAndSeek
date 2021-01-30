@@ -60,6 +60,7 @@ anchor_bottom = 0.5
 margin_left = -64.0
 margin_right = 64.0
 margin_bottom = 24.0
+text = "8910"
 placeholder_text = "1024-65535"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -104,6 +105,7 @@ anchor_bottom = 0.5
 margin_left = -136.0
 margin_right = -8.0
 margin_bottom = 24.0
+text = "83.173.176.43"
 placeholder_text = "192.168.0.100"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -127,6 +129,7 @@ anchor_bottom = 0.5
 margin_left = 8.0
 margin_right = 136.0
 margin_bottom = 24.0
+text = "8910"
 placeholder_text = "1024-65535"
 __meta__ = {
 "_edit_use_anchors_": false

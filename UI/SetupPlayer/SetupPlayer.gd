@@ -4,11 +4,13 @@ signal on_start_pressed(nickname)
 
 func update_player_data(player_data):
 	$Wait.hide()
-	$TypeLabel.text = player_data.name
+	$TypeLabel.text = player_data.nickname
 
 func update_players(players):
 	for player in players:
-		$ItemList.add_item(player.name)
+		
+		print(PlayerData.new().nickname)
+		$ItemList.add_item(player.nickname)
 
 func _on_Button_pressed():
 	emit_signal("on_start_pressed", $LineEdit.text)
