@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-var tomb
+var tombs
+var current_tomb
 
 # Random number generator
 var rng = RandomNumberGenerator.new()
@@ -12,11 +13,12 @@ var last_direction = Vector2(0, 1)
 var bounce_countdown = 0
 
 func _ready():
-	tomb = get_tree().get_nodes_in_group("TOMB")
-	rng.randomize()
+	tombs = get_tree().get_nodes_in_group("TOMB")
+	current_tomb = tombs[randi()%tombs.size()]
+	print(current_tomb)
 
 func _on_Timer_timeout():
-	var tomb_relative_position = tomb.position - position
+	var tomb_relative_position = current_tomb.position - position
 	
 	if tomb_relative_position.length() <= 16:
 		direction = Vector2.ZERO
@@ -40,7 +42,7 @@ func _physics_process(delta):
 	
 	var collision = move_and_collide(movement)
 	
-	if collision != null and collision.collider.name != get_tree().get_nodes_in_group("TOMB"):
+	if collision != null and collision.collider.name != "Player":
 		direction = direction.rotated(rng.randf_range(PI/4, PI/2))
 		bounce_countdown = rng.randi_range(2, 5)
 

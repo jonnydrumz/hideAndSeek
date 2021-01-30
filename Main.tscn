@@ -64,4 +64,4 @@ z_index = 50
 texture = ExtResource( 5 )
 
 [node name="Enemy" parent="Ingame" instance=ExtResource( 6 )]
-position = Vector2( 417.137, 325.7 )
+position = Vector2( 88.7667, 59.4003 )
