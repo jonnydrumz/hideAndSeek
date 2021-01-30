@@ -7,6 +7,7 @@ func update_player_data(player_data):
 	$TypeLabel.text = player_data.nickname
 
 func update_players(players):
+	$UserList.clear()
 	for player in players:
 		$UserList.add_item(player.nickname)
 	$StartButton.visible = get_tree().is_network_server()
