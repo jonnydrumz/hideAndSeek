@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Textures/LampLight.png" type="Texture" id=1]
+[ext_resource path="res://PlayerBuscador/LampLight.gd" type="Script" id=2]
+
+[node name="LampLight" type="Light2D"]
+light_mask = 512
+enabled = false
+texture = ExtResource( 1 )
+energy = 3.0
+shadow_enabled = true
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
