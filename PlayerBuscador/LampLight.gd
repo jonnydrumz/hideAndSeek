@@ -3,6 +3,7 @@ extends Light2D
 export(int) var wait_time : int = 5
 export(float) var light_time : float = 2.0
 
+onready var area  := $Area2D
 onready var tween := $Tween
 onready var timer := $Timer
 
@@ -13,9 +14,9 @@ onready var running = false
 
 var time : int
 
-
 func turn_on():
 	if not ready: return
+	area.set_collision_layer_bit(0, true)
 	enabled = true
 	running = true
 	ready = false
@@ -27,6 +28,7 @@ func turn_on():
 
 func _on_Tween_tween_all_completed():
 	enabled = false
+	area.set_collision_layer_bit(0, false)
 	running = false
 	timer.start()
 
