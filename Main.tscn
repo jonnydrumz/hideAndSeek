@@ -79,7 +79,6 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="CameraCosas" type="Node2D" parent="Ingame/ProceduralLevel/Player/Camera2D"]
 
 [node name="TodoNegro" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas"]
-visible = false
 scale = Vector2( 0.5, 0.5 )
 z_index = 50
 texture = ExtResource( 5 )
