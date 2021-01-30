@@ -1,7 +1,7 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ProceduralLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://PlayerBuscador/PlayerBuscador.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Textures/FloorTile.png" type="Texture" id=4]
 [ext_resource path="res://Textures/TodoNegro.png" type="Texture" id=5]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Textures/ruido_0007_Capa-6.png" type="Texture" id=21]
 [ext_resource path="res://Textures/ruido_0006_Capa-6-copia.png" type="Texture" id=22]
 [ext_resource path="res://Textures/ruido_0000_Capa-5-copia-3.png" type="Texture" id=23]
+[ext_resource path="res://Ground.gd" type="Script" id=24]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -46,7 +47,7 @@ script = ExtResource( 7 )
 "SLM",
 ]]
 script = ExtResource( 9 )
-player_nodepath = NodePath("../Ingame/Level/Player")
+player_nodepath = NodePath("../Ingame/ProceduralLevel/Player")
 
 [node name="FakeSoundGenerator" type="Node2D" parent="."]
 script = ExtResource( 11 )
@@ -62,68 +63,26 @@ autostart = true
 environment = SubResource( 1 )
 
 [node name="Ground" type="Node2D" parent="Ingame"]
+script = ExtResource( 24 )
+width = 6
+floor_texture = ExtResource( 4 )
 
-[node name="FloorTile" type="Sprite" parent="Ingame/Ground"]
-light_mask = 513
-position = Vector2( 8, 208 )
-texture = ExtResource( 4 )
+[node name="ProceduralLevel" parent="Ingame" instance=ExtResource( 2 )]
 
-[node name="FloorTile3" type="Sprite" parent="Ingame/Ground"]
-light_mask = 513
-position = Vector2( -408, 416 )
-texture = ExtResource( 4 )
+[node name="Player" parent="Ingame/ProceduralLevel" instance=ExtResource( 3 )]
 
-[node name="FloorTile2" type="Sprite" parent="Ingame/Ground"]
-light_mask = 513
-position = Vector2( 424, 0 )
-texture = ExtResource( 4 )
-
-[node name="FloorTile4" type="Sprite" parent="Ingame/Ground"]
-light_mask = 513
-position = Vector2( -405, 1.5 )
-texture = ExtResource( 4 )
-
-[node name="FloorTile5" type="Sprite" parent="Ingame/Ground"]
-light_mask = 513
-position = Vector2( -821, 209.5 )
-texture = ExtResource( 4 )
-
-[node name="FloorTile6" type="Sprite" parent="Ingame/Ground"]
-light_mask = 513
-position = Vector2( 11, -206.5 )
-texture = ExtResource( 4 )
-
-[node name="FloorTile7" type="Sprite" parent="Ingame/Ground"]
-light_mask = 513
-position = Vector2( 419, 417.5 )
-texture = ExtResource( 4 )
-
-[node name="FloorTile8" type="Sprite" parent="Ingame/Ground"]
-light_mask = 513
-position = Vector2( 3, 625.5 )
-texture = ExtResource( 4 )
-
-[node name="FloorTile9" type="Sprite" parent="Ingame/Ground"]
-light_mask = 513
-position = Vector2( 835, 209.5 )
-texture = ExtResource( 4 )
-
-[node name="Level" parent="Ingame" instance=ExtResource( 2 )]
-
-[node name="Player" parent="Ingame/Level" instance=ExtResource( 3 )]
-
-[node name="Camera2D" type="Camera2D" parent="Ingame/Level/Player"]
+[node name="Camera2D" type="Camera2D" parent="Ingame/ProceduralLevel/Player"]
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
-[node name="CameraCosas" type="Node2D" parent="Ingame/Level/Player/Camera2D"]
+[node name="CameraCosas" type="Node2D" parent="Ingame/ProceduralLevel/Player/Camera2D"]
 
-[node name="TodoNegro" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas"]
+[node name="TodoNegro" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas"]
 scale = Vector2( 0.5, 0.5 )
 z_index = 50
 texture = ExtResource( 5 )
 
-[node name="EaredUp" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+[node name="EaredUp" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
 position = Vector2( 0, -88 )
@@ -132,7 +91,7 @@ z_index = 50
 texture = ExtResource( 18 )
 script = ExtResource( 16 )
 
-[node name="EaredDown" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+[node name="EaredDown" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
 position = Vector2( 0, 88 )
@@ -142,7 +101,7 @@ texture = ExtResource( 17 )
 script = ExtResource( 16 )
 direction = 1
 
-[node name="EaredLeft" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+[node name="EaredLeft" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
 position = Vector2( -192, 0 )
@@ -152,7 +111,7 @@ texture = ExtResource( 15 )
 script = ExtResource( 16 )
 direction = 2
 
-[node name="EaredRight" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+[node name="EaredRight" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
 position = Vector2( 192, 0 )
@@ -162,7 +121,7 @@ texture = ExtResource( 23 )
 script = ExtResource( 16 )
 direction = 3
 
-[node name="EaredUpLeft" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+[node name="EaredUpLeft" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
 position = Vector2( -48, 24 )
@@ -172,7 +131,7 @@ texture = ExtResource( 20 )
 script = ExtResource( 16 )
 direction = 4
 
-[node name="EaredUpRight" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+[node name="EaredUpRight" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
 position = Vector2( 48, 24 )
@@ -182,7 +141,7 @@ texture = ExtResource( 19 )
 script = ExtResource( 16 )
 direction = 5
 
-[node name="EaredDownLeft" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+[node name="EaredDownLeft" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
 position = Vector2( -48, -24 )
@@ -192,7 +151,7 @@ texture = ExtResource( 21 )
 script = ExtResource( 16 )
 direction = 6
 
-[node name="EaredDownRight" type="Sprite" parent="Ingame/Level/Player/Camera2D/CameraCosas" groups=[
+[node name="EaredDownRight" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
 "AUDIO_LOCATOR_LISTENER",
 ]]
 position = Vector2( 48, -24 )
@@ -202,7 +161,7 @@ texture = ExtResource( 22 )
 script = ExtResource( 16 )
 direction = 7
 
-[node name="Enemy" parent="Ingame/Level" instance=ExtResource( 6 )]
+[node name="Enemy" parent="Ingame/ProceduralLevel" instance=ExtResource( 6 )]
 position = Vector2( -72, 48 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Ingame"]

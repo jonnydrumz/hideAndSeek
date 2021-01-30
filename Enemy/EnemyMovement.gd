@@ -16,11 +16,12 @@ var seconds
 
 func _ready():
 	tombs = get_tree().get_nodes_in_group("TOMB")
-	movement()
-	$TimerSteps.start()
+	if tombs.size() > 0:
+		call_deferred("movement")
+		$TimerSteps.start()
 
 func _on_Tween_tween_all_completed():
-	$Timer.start(rand_range(5.0,15.0))
+	$Timer.start(rand_range(5.0, 15.0))
 	$SFX.stop()
 
 
@@ -31,7 +32,7 @@ func _on_Timer_timeout():
 func movement():
 	rng.randomize()
 	$SFX.play()
-	current_tomb = tombs[rng.randi()%tombs.size()]
+	current_tomb = tombs[rng.randi() % tombs.size()]
 	var length = position.distance_to(current_tomb.global_position)
 	seconds = position.distance_to(current_tomb.global_position) / seconds_to_arrive
 	tween.interpolate_property(self, "position", position, current_tomb.global_position, seconds, Tween.TRANS_LINEAR, Tween.EASE_OUT)
