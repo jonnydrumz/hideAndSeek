@@ -72,7 +72,8 @@ func _on_peer_disconnected(id):
 		update_player_data(host.players)
 	else:
 		rpc("update_player_data", host.players)
-	
+	# NO SE POR QUE NO ACTUALIZA EL UI
+
 remote func update_player_data(players):
 	host.emit_signal("player_data_received", players)
 
