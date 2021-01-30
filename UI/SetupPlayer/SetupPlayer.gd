@@ -8,8 +8,6 @@ func update_player_data(player_data):
 
 func update_players(players):
 	for player in players:
-		
-		print(PlayerData.new().nickname)
 		$ItemList.add_item(player.nickname)
 
 func _on_Button_pressed():
