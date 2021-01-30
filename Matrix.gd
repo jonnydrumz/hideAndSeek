@@ -4,6 +4,7 @@ enum Tile {
 	EMPTY,
 	LIMITL,
 	LIMITR,
+	COLUMN,
 	TOMB1L,
 	TOMB2L,
 	TOMB3L,
@@ -30,19 +31,24 @@ func build():
 			if x > 0 and y > 0 and x < real_width - 2 and y < real_height - 2:
 				line.append(_random_tile())
 			else:
-				if x == 0:
-					line.append(1)
+				if x == 0 and y == 0 \
+				or x == 0 and y == real_height - 1 \
+				or x == real_width -1 and y == 0 \
+				or x == real_width -1 and y == real_height -1:
+					line.append(Tile.COLUMN)
+				elif x == 0:
+					line.append(Tile.LIMITL)
 				elif y == 0:
-					line.append(2)
+					line.append(Tile.LIMITR)
 				elif x == real_width - 1:
-					line.append(1)
+					line.append(Tile.LIMITL)
 				elif y == real_height - 1:
-					line.append(2)
+					line.append(Tile.LIMITR)
 				else:
-					line.append(0)
+					line.append(Tile.EMPTY)
 		data.append(line)
 
 func _random_tile():
 	if rand_range(0.0, 1.0) >= amount:
 		return Tile.EMPTY
-	return (randi() % 9) + 3
+	return (randi() % 9) + 4

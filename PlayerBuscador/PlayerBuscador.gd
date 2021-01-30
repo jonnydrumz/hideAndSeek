@@ -10,6 +10,7 @@ onready var candle    : Light2D = $Candle
 onready var lamplight : Light2D = $LampLight
 
 onready var animator  : AnimationPlayer = $AnimationPlayer
+onready var walk_sfx  : AudioStreamPlayer = $AudioStreamPlayer
 
 onready var velocity : Vector2 = Vector2.ZERO
 onready var angle    : float   = .0
@@ -46,8 +47,12 @@ func _action(delta : float):
 func _animate(delta : float):
 	if velocity.length() > .1:
 		animator.play("Walk", .0)
+		if not walk_sfx.playing:
+			walk_sfx.play()
 	else:
 		animator.play("Stop", .25)
+		if walk_sfx.playing:
+			walk_sfx.stop()
 
 func _lamp_turn_on():
 	lamplight.turn_on()
