@@ -1,5 +1,8 @@
 extends Node
 
+func _ready():
+	randomize()
+
 func _on_StartMenu_create_pressed(port):
 	$NetworkManager.create_server(port)
 

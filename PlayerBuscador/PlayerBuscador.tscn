@@ -1,25 +1,72 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Player01.png" type="Texture" id=1]
 [ext_resource path="res://PlayerBuscador/PlayerBuscador.gd" type="Script" id=2]
 [ext_resource path="res://Textures/LightPesonaje.png" type="Texture" id=3]
+[ext_resource path="res://PlayerBuscador/LampLight.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Textures/PlayerShadow.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="Player" type="KinematicBody2D"]
+[sub_resource type="Animation" id=2]
+resource_name = "Walk"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 8 ), Vector2( 0, 6 ), Vector2( 0, 8 ), Vector2( 0, 6 ) ]
+}
+
+[node name="Player" type="KinematicBody2D" groups=[
+"PLAYER",
+]]
 script = ExtResource( 2 )
+
+[node name="PlayerShadow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.498039 )
+light_mask = 0
+texture = ExtResource( 5 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 3 )
 energy = 2.0
 shadow_enabled = true
 
-[node name="icon" type="Sprite" parent="."]
+[node name="LampLight" parent="." instance=ExtResource( 4 )]
+range_item_cull_mask = 513
+shadow_enabled = false
+shadow_item_cull_mask = 0
+
+[node name="Sprite" type="Sprite" parent="."]
 light_mask = 16
-position = Vector2( 0, -16 )
-scale = Vector2( 0.5, 0.75 )
+position = Vector2( 0, 8 )
+scale = Vector2( 1, 0.966667 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Walk"
+anims/Walk = SubResource( 2 )
