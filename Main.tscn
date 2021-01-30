@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Level.tscn" type="PackedScene" id=2]
 [ext_resource path="res://PlayerBuscador/PlayerBuscador.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Textures/FloorTile.png" type="Texture" id=4]
 [ext_resource path="res://Textures/TodoNegro.png" type="Texture" id=5]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -61,3 +62,6 @@ zoom = Vector2( 0.5, 0.5 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 50
 texture = ExtResource( 5 )
+
+[node name="Enemy" parent="Ingame" instance=ExtResource( 6 )]
+position = Vector2( 417.137, 325.7 )

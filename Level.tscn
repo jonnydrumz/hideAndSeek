@@ -78,40 +78,6 @@ position = Vector2( -289.182, 207.172 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="Fila3Tumbas01" type="Node2D" parent="."]
-position = Vector2( -561.581, -20.6633 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Fila3Tumbas02" type="Node2D" parent="."]
-position = Vector2( 61.5289, -137.048 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Fila3Tumbas04" type="Node2D" parent="."]
-position = Vector2( 167.458, -89.631 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Fila4Tumbas01" type="Node2D" parent="."]
-position = Vector2( -257.182, 255.172 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Fila4Tumbas04" type="Node2D" parent="."]
-position = Vector2( -42.7533, 140.81 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
-__meta__ = {
-"_edit_group_": true
-}
-
 [node name="TombStone19" parent="." instance=ExtResource( 2 )]
 position = Vector2( 304.764, 256.337 )
 rotation = 3.14159
