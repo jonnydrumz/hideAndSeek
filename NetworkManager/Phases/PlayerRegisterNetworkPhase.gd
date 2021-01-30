@@ -13,10 +13,11 @@ remote func set_player_name(id, nickname):
 	for player in host.players:
 		if player.id == id:
 			player.nickname = nickname
-	if id == 1:
+	if get_tree().is_network_server():
 		update_player_data(host.players)
-	else:
-		rpc("update_player_data", host.players)
+	for player in host.players:
+		if player.id != 1:
+			rpc_id(player.id, "update_player_data", host.players)
 	
 remote func update_player_data(players):
 	host.emit_signal("player_data_received", players)
