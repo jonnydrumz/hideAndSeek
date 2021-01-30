@@ -1,13 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Level.tscn" type="PackedScene" id=2]
 [ext_resource path="res://PlayerBuscador/PlayerBuscador.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Textures/FloorTile.png" type="Texture" id=4]
 [ext_resource path="res://Textures/TodoNegro.png" type="Texture" id=5]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GhostBusterManager.gd" type="Script" id=7]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
+
+[node name="GhostBusterManager" type="Node" parent="." groups=[
+"GBM",
+]]
+script = ExtResource( 7 )
 
 [node name="Ingame" type="Node2D" parent="."]
 
@@ -70,9 +77,6 @@ zoom = Vector2( 0.5, 0.5 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 50
 texture = ExtResource( 5 )
-<<<<<<< HEAD
 
-[node name="Enemy" parent="Ingame" instance=ExtResource( 6 )]
-position = Vector2( 88.7667, 59.4003 )
-=======
->>>>>>> c4fb78930a4ac405fbfb752a4aa9c58698b0ed5e
+[node name="Enemy" parent="Ingame/Level" instance=ExtResource( 6 )]
+position = Vector2( -72, 48 )

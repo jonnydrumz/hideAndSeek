@@ -6,6 +6,8 @@ export(float) var light_time : float = 2.0
 onready var tween := $Tween
 onready var timer := $Timer
 
+onready var gbm = get_tree().get_nodes_in_group("GBM")[0]
+
 onready var ready = true
 onready var running = false
 
@@ -32,6 +34,7 @@ func _on_Timer_timeout():
 		timer.stop()
 		ready = true
 
-func _on_Area2D_area_entered(area):
-	if area.is_in_group("GHOST"):
-		print("CAZADO")
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("GHOST"):
+		gbm.busted(body)
+
