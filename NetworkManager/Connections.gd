@@ -51,7 +51,7 @@ func _create_player_server():
 		rpc_id(id, "_player_accepted", id)
 
 func _on_peer_connected(id):
-	if id != get_tree().get_network_unique_id(): return
+	if id == 1: return
 	var data = {
 				"id": id,
 				"nickname": "",
@@ -71,7 +71,7 @@ remote func _player_accepted(id):
 func _on_peer_disconnected(id):
 	emit_signal("player_data_erased", id)
 	print("Disconnected ",id)
-	if id == 1:
+	if get_tree().is_network_server():
 		update_player_data(host.players)
 	else:
 		rpc("update_player_data", host.players)
