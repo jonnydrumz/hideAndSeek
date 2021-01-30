@@ -64,9 +64,16 @@ func _on_peer_connected(id):
 remote func _player_accepted():
 	print("Player accepted")
 	host.emit_signal("player_accepted") 
-	
 
 func _on_peer_disconnected(id):
 	emit_signal("player_data_erased", id)
 	print("Disconnected ",id)
+	if id == 1:
+		update_player_data(host.players)
+	else:
+		rpc("update_player_data", host.players)
+	
+remote func update_player_data(players):
+	host.emit_signal("player_data_received", players)
+
 
