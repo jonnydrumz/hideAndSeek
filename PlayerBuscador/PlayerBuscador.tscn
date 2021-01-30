@@ -222,4 +222,4 @@ anims/Walk = SubResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -3.0
+volume_db = 6.0

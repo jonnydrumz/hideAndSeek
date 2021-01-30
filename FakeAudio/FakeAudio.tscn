@@ -5,4 +5,3 @@
 [node name="FakeAudio" type="AudioStreamPlayer2D"]
 volume_db = -10.0
 script = ExtResource( 1 )
-[connection signal="finished" from="." to="." method="_on_FakeAudio_finished"]

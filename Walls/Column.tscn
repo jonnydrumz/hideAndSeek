@@ -3,7 +3,7 @@
 [ext_resource path="res://Textures/Column.png" type="Texture" id=1]
 
 [sub_resource type="OccluderPolygon2D" id=1]
-polygon = PoolVector2Array( -16, 8, 0, 16, 16, 8, 16, 0, 0, -8, -16, 0 )
+polygon = PoolVector2Array( -19.3256, 11.3138, 0.219284, 21.235, 19.8634, 10.7185, 19.4665, 6.35315, 0.318497, -4.2626, -19.524, 6.35315 )
 
 [node name="Limit" type="StaticBody2D"]
 
@@ -11,10 +11,10 @@ polygon = PoolVector2Array( -16, 8, 0, 16, 16, 8, 16, 0, 0, -8, -16, 0 )
 light_mask = 512
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
-offset = Vector2( 0, -76 )
+offset = Vector2( 0, -112 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -16, 8, -0.114349, 16, 16, 8, 16, 0, 0, -8, -16, 0 )
+polygon = PoolVector2Array( -19.4248, 11.3138, 0.417709, 21.4335, 19.3673, 10.9169, 18.9705, 6.05551, 0.120071, -4.2626, -19.3256, 6.15473 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 1 )
