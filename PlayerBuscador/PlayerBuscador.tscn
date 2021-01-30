@@ -1,12 +1,20 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Textures/Player01.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Player00.png" type="Texture" id=1]
 [ext_resource path="res://PlayerBuscador/PlayerBuscador.gd" type="Script" id=2]
 [ext_resource path="res://Textures/LightPesonaje.png" type="Texture" id=3]
 [ext_resource path="res://PlayerBuscador/LampLight.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Textures/PlayerShadow.png" type="Texture" id=5]
 [ext_resource path="res://PlayerBuscador/Candle.gd" type="Script" id=6]
 [ext_resource path="res://PlayerBuscador/Lamp.gd" type="Script" id=7]
+[ext_resource path="res://Textures/Player03.png" type="Texture" id=8]
+[ext_resource path="res://Textures/Player01.png" type="Texture" id=9]
+[ext_resource path="res://Textures/Player02.png" type="Texture" id=10]
+[ext_resource path="res://Textures/Player04.png" type="Texture" id=11]
+[ext_resource path="res://Textures/Player05.png" type="Texture" id=12]
+[ext_resource path="res://Textures/Player06.png" type="Texture" id=13]
+[ext_resource path="res://Textures/Player07.png" type="Texture" id=14]
+[ext_resource path="res://PlayerBuscador/Sprite.gd" type="Script" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Tintinear"
@@ -114,12 +122,7 @@ tracks/1/keys = {
 "PLAYER",
 ]]
 script = ExtResource( 2 )
-
-[node name="PlayerShadow" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.498039 )
-light_mask = 0
-position = Vector2( 4, 0 )
-texture = ExtResource( 5 )
+player_textures = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ) ]
 
 [node name="Candle" type="Light2D" parent="." groups=[
 "PLAYER_LIGHT",
@@ -150,10 +153,12 @@ position = Vector2( 0, 8 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -64 )
+script = ExtResource( 15 )
 
 [node name="Eye1" type="Light2D" parent="Sprite" groups=[
 "PLAYER_LIGHT",
 ]]
+visible = false
 position = Vector2( 53.0008, -48.8076 )
 texture = ExtResource( 3 )
 offset = Vector2( -58.6366, -24.6484 )
@@ -168,6 +173,7 @@ ray_color = Color( 0, 0.368627, 1, 1 )
 [node name="Eye2" type="Light2D" parent="Sprite" groups=[
 "PLAYER_LIGHT",
 ]]
+visible = false
 position = Vector2( 53.0892, -48.8076 )
 texture = ExtResource( 3 )
 offset = Vector2( -39.4312, -25.3891 )
@@ -182,7 +188,7 @@ ray_color = Color( 0, 0.368627, 1, 1 )
 [node name="Lamp" type="Light2D" parent="Sprite" groups=[
 "PLAYER_LIGHT",
 ]]
-position = Vector2( -24.349, -39.4548 )
+position = Vector2( -24, -39 )
 scale = Vector2( 0.518, 1 )
 texture = ExtResource( 3 )
 texture_scale = 0.3
@@ -197,6 +203,13 @@ autoplay = "lamp"
 anims/lamp = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="Sprite/Lamp"]
+
+[node name="PlayerShadow" type="Sprite" parent="Sprite"]
+modulate = Color( 1, 1, 1, 0.498039 )
+light_mask = 0
+position = Vector2( 8, -16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

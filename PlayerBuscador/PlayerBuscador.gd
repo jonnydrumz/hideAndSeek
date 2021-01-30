@@ -1,8 +1,11 @@
 extends KinematicBody2D
 
+export(Array,Texture) var player_textures : Array
+
 export(float) var player_speed : float = 64.0
 export(float) var animation_speed : float = 2.0
 
+onready var sprite    : Sprite  = $Sprite
 onready var candle    : Light2D = $Candle
 onready var lamplight : Light2D = $LampLight
 
@@ -33,7 +36,8 @@ func _move(delta : float):
 	velocity = velocity.normalized()
 	velocity.x *= player_speed
 	velocity.y *= player_speed_y
-	
+	if velocity.length() > .1:
+		sprite.update_texture(player_textures, velocity.angle())
 
 func _action(delta : float):
 	if Input.is_action_just_pressed("ui_accept"):
