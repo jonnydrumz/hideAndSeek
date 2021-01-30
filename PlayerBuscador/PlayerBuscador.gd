@@ -40,11 +40,10 @@ func _action(delta : float):
 		_lamp_turn_on()
 
 func _animate(delta : float):
-	# esto esta hecho asi para poder hacer una velocidad de animacion acorde al movimiento
 	if velocity.length() > .1:
-		animator.playback_speed = animation_speed
+		animator.play("Walk", .0)
 	else:
-		animator.playback_speed = .0
+		animator.play("Stop", .25)
 
 func _lamp_turn_on():
 	lamplight.turn_on()

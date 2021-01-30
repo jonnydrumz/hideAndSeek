@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Textures/Player01.png" type="Texture" id=1]
 [ext_resource path="res://PlayerBuscador/PlayerBuscador.gd" type="Script" id=2]
@@ -56,6 +56,33 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 16 )
 
+[sub_resource type="Animation" id=5]
+resource_name = "Stop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 8 ) ]
+}
+
 [sub_resource type="Animation" id=2]
 resource_name = "Walk"
 loop = true
@@ -98,7 +125,6 @@ texture = ExtResource( 5 )
 [node name="Candle" type="Light2D" parent="." groups=[
 "PLAYER_LIGHT",
 ]]
-position = Vector2( 0.166, -0.132 )
 texture = ExtResource( 3 )
 energy = 2.0
 shadow_enabled = true
@@ -121,24 +147,38 @@ shadow_item_cull_mask = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 16
-position = Vector2( 0, 7 )
-scale = Vector2( 0.5, 0.491667 )
+position = Vector2( 0, 8 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -64 )
 
-[node name="Eye1" type="Light2D" parent="Sprite"]
-position = Vector2( -5.63581, -73.456 )
+[node name="Eye1" type="Light2D" parent="Sprite" groups=[
+"PLAYER_LIGHT",
+]]
+position = Vector2( 53.0008, -48.8076 )
 texture = ExtResource( 3 )
+offset = Vector2( -58.6366, -24.6484 )
 texture_scale = 0.1
 energy = 2.0
 range_item_cull_mask = 16
+script = ExtResource( 6 )
+ray_color = Color( 0, 0.368627, 1, 1 )
 
-[node name="Eye2" type="Light2D" parent="Sprite"]
-position = Vector2( 13.5696, -74.1967 )
+[node name="Tween" type="Tween" parent="Sprite/Eye1"]
+
+[node name="Eye2" type="Light2D" parent="Sprite" groups=[
+"PLAYER_LIGHT",
+]]
+position = Vector2( 53.0892, -48.8076 )
 texture = ExtResource( 3 )
+offset = Vector2( -39.4312, -25.3891 )
 texture_scale = 0.1
 energy = 2.0
 range_item_cull_mask = 16
+script = ExtResource( 6 )
+ray_color = Color( 0, 0.368627, 1, 1 )
+
+[node name="Tween" type="Tween" parent="Sprite/Eye2"]
 
 [node name="Lamp" type="Light2D" parent="Sprite" groups=[
 "PLAYER_LIGHT",
@@ -164,5 +204,6 @@ visible = false
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Walk"
+autoplay = "Stop"
+anims/Stop = SubResource( 5 )
 anims/Walk = SubResource( 2 )
