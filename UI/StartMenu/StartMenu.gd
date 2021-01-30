@@ -11,8 +11,8 @@ func _on_Connection_on_create_pressed(port):
 func _on_Connection_on_join_pressed(ip, port):
 	emit_signal("join_pressed", ip, port)
 
-func on_player_setup_received(player_data):
-	$SetupPlayer.update_player_data(player_data)
+func update_players(players):
+	$SetupPlayer.update_players(players)
 
 func accept_player():
 	$Connection.hide()

@@ -14,3 +14,4 @@ script = ExtResource( 1 )
 [connection signal="join_pressed" from="StartMenu" to="." method="_on_StartMenu_join_pressed"]
 [connection signal="name_entered" from="StartMenu" to="." method="_on_StartMenu_name_entered"]
 [connection signal="player_accepted" from="NetworkManager" to="." method="_on_NetworkManager_player_accepted"]
+[connection signal="player_data_received" from="NetworkManager" to="." method="_on_NetworkManager_player_data_received"]

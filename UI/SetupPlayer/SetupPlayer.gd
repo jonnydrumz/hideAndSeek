@@ -6,7 +6,7 @@ func update_player_data(player_data):
 	$Wait.hide()
 	$TypeLabel.text = player_data.name
 
-func update_player_list(players):
+func update_players(players):
 	for player in players:
 		$ItemList.add_item(player.name)
 
