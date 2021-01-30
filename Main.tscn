@@ -70,3 +70,9 @@ zoom = Vector2( 0.5, 0.5 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 50
 texture = ExtResource( 5 )
+<<<<<<< HEAD
+
+[node name="Enemy" parent="Ingame" instance=ExtResource( 6 )]
+position = Vector2( 88.7667, 59.4003 )
+=======
+>>>>>>> c4fb78930a4ac405fbfb752a4aa9c58698b0ed5e
