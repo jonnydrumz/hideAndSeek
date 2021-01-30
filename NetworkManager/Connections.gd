@@ -73,10 +73,17 @@ func _on_peer_disconnected(id):
 	print("Disconnected ", id)
 	if get_tree().is_network_server():
 		update_player_data(host.players)
+<<<<<<< HEAD
+	else:
+		rpc("update_player_data", host.players)
+	# NO SE POR QUE NO ACTUALIZA EL UI
+
+=======
 	for player in host.players:
 		if player.id != 1:
 			rpc_id(player.id, "update_player_data", host.players)
 	
+>>>>>>> a138643404ddd7ac221f62292bd568902967a1cf
 remote func update_player_data(players):
 	host.emit_signal("player_data_received", players)
 

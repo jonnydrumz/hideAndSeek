@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Walls/TombStone02.res" type="PackedScene" id=1]
+
+[node name="TombStone02" instance=ExtResource( 1 )]
+scale = Vector2( -1, 1 )

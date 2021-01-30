@@ -4,7 +4,8 @@
 [ext_resource path="res://Walls/TombStone02.res" type="PackedScene" id=3]
 [ext_resource path="res://Walls/TombStone03.res" type="PackedScene" id=4]
 [ext_resource path="res://Walls/Stone.res" type="PackedScene" id=5]
-[ext_resource path="res://Walls/Grass.res" type="PackedScene" id=6]
+[ext_resource path="res://Walls/Grass01.res" type="PackedScene" id=6]
+
 
 [node name="LevelElements" type="YSort"]
 
