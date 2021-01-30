@@ -36,8 +36,9 @@ func join_server(ip, port):
 	print("Connecting...")
 
 func _create_player_server():
+	var id = get_tree().get_network_unique_id()
 	var data = {
-				"id": get_tree().get_network_unique_id(),
+				"id": id,
 				"nickname": "",
 				"type": -1,
 				"pos_x": 0.0,
@@ -45,9 +46,9 @@ func _create_player_server():
 			}
 	emit_signal("player_data_created", data)
 	if get_tree().is_network_server():
-		_player_accepted()
+		_player_accepted(id)
 	else:
-		rpc_id(data.id, "_player_accepted")
+		rpc_id(id, "_player_accepted", id)
 
 func _on_peer_connected(id):
 	var data = {
@@ -59,11 +60,12 @@ func _on_peer_connected(id):
 			}
 	emit_signal("player_data_created", data)
 	print("Connected ",id)
-	rpc_id(data.id, "_player_accepted")
+	rpc_id(id, "_player_accepted", id)
 
-remote func _player_accepted():
-	print("Player accepted")
-	host.emit_signal("player_accepted") 
+remote func _player_accepted(id):
+	print("Player accepted ", id)
+	if id == get_tree().get_network_unique_id():
+		host.emit_signal("player_accepted") 
 
 func _on_peer_disconnected(id):
 	emit_signal("player_data_erased", id)
