@@ -24,7 +24,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -0.256, 0.069 ), Vector2( 0.168, 0.027 ), Vector2( -0.121, -0.247 ), Vector2( 0.166, -0.132 ), Vector2( 0.109, 0.192 ), Vector2( 0.168, 0.027 ), Vector2( 0, 0 ), Vector2( 0.166, -0.132 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "lamp"
 length = 4.0
 loop = true
@@ -56,7 +56,7 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "Stop"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
@@ -83,8 +83,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 8 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Walk"
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
@@ -195,7 +194,7 @@ ray_color = Color( 0, 0.368627, 1, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/Lamp"]
 autoplay = "lamp"
-anims/lamp = SubResource( 4 )
+anims/lamp = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="Sprite/Lamp"]
 
@@ -205,5 +204,5 @@ shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Stop"
-anims/Stop = SubResource( 5 )
-anims/Walk = SubResource( 2 )
+anims/Stop = SubResource( 4 )
+anims/Walk = SubResource( 5 )
