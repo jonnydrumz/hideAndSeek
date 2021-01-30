@@ -9,10 +9,7 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-
-[node name="Environment" type="Node" parent="."]
+[node name="Environment" type="Node2D" parent="."]
 
 [node name="Floor" type="Node2D" parent="Environment"]
 
