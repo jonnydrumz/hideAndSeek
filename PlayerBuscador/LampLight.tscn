@@ -1,10 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Textures/LampLight.png" type="Texture" id=1]
 [ext_resource path="res://PlayerBuscador/LampLight.gd" type="Script" id=2]
 
+[sub_resource type="Animation" id=1]
+resource_name = "Tintinear"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -0.256, 0.069 ), Vector2( 0.168, 0.027 ), Vector2( -0.121, -0.247 ), Vector2( 0.166, -0.132 ), Vector2( 0.109, 0.192 ), Vector2( 0.168, 0.027 ), Vector2( 0, 0 ), Vector2( 0.166, -0.132 ) ]
+}
+
 [node name="LampLight" type="Light2D"]
 light_mask = 512
+position = Vector2( 0.0779958, -0.0620207 )
 enabled = false
 texture = ExtResource( 1 )
 energy = 3.0
@@ -20,6 +37,10 @@ monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PoolVector2Array( 7.45779, -4.12414, 105.716, -53.1789, 112.405, -44.5572, 121.176, -25.2326, 124.297, -9.62423, 125.338, -0.110569, 123.851, 13.4167, 121.027, 26.2006, 116.27, 36.7549, 111.216, 45.5253, 105.567, 52.6605, 6.71454, 5.24087 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Tintinear"
+anims/Tintinear = SubResource( 1 )
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

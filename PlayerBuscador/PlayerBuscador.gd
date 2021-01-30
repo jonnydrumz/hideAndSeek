@@ -3,6 +3,7 @@ extends KinematicBody2D
 export(float) var player_speed : float = 64.0
 export(float) var animation_speed : float = 2.0
 
+onready var candle    : Light2D = $Candle
 onready var lamplight : Light2D = $LampLight
 
 onready var animator  : AnimationPlayer = $AnimationPlayer

@@ -13,6 +13,7 @@ onready var running = false
 
 var time : int
 
+
 func turn_on():
 	if not ready: return
 	enabled = true
@@ -22,6 +23,7 @@ func turn_on():
 	tween.interpolate_property(self, "energy",
 			3.0, .0, light_time, Tween.TRANS_CUBIC, Tween.EASE_IN)
 	tween.start()
+	get_tree().call_group("PLAYER_LIGHT", "colorize")
 
 func _on_Tween_tween_all_completed():
 	enabled = false
