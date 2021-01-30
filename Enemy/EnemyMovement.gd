@@ -20,21 +20,14 @@ var step_rotation
 
 func _ready():
 	tombs = get_tree().get_nodes_in_group("TOMB")
-<<<<<<< HEAD
-	movement()
-	$TimerSteps.start()
-	$TimerShow.start(rand_range(3.0,6.0))
-
-func _on_Tween_tween_all_completed():
-	$Timer.start(rand_range(5.0,10.0))
-=======
 	if tombs.size() > 0:
 		call_deferred("movement")
 		$TimerSteps.start()
+		$TimerShow.start(rand_range(3.0,6.0))
+
 
 func _on_Tween_tween_all_completed():
 	$Timer.start(rand_range(5.0, 15.0))
->>>>>>> 5141a9c37955f53e871dbd197ee0e39b09f5c6e2
 	$SFX.stop()
 	$Ghost.hide()
 	enemy_visible = false
