@@ -71,7 +71,7 @@ func _connected_fail():
 func _on_Button3_pressed():
 	for id in players: 
 		rpc_id(id, "hola", id)
-
+		
 remote func hola(id):
 	print(id)
 

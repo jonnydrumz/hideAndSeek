@@ -15,6 +15,8 @@ func on_player_setup_received(player_data):
 	$SetupPlayer.update_player_data(player_data)
 
 func accept_player():
+	$Connection.hide()
+	$SetupPlayer.show()
 	$SetupPlayer.accept_player()
 	print("Conectado")
 
