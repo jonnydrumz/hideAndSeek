@@ -58,7 +58,7 @@ glow_blend_mode = 1
 glow_hdr_threshold = 0.07
 glow_bicubic_upscale = true
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 70
 use_filter = true
 font_data = ExtResource( 35 )
@@ -80,8 +80,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Open"
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -358,7 +357,7 @@ anchor_bottom = 0.4
 margin_left = 32.0
 margin_top = -40.0
 margin_bottom = -3.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.219608, 0.54902, 0.439216, 1 )
 text = "33:59"
 align = 1
@@ -377,7 +376,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/HUD/EndScreen"]
 anims/Anim = SubResource( 3 )
-anims/Open = SubResource( 2 )
+anims/Open = SubResource( 4 )
 
 [node name="reinicio_0011_logo" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
 anchor_right = 1.0
