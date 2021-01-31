@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ProceduralLevel.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Textures/Hud/lamp_counter_on.png" type="Texture" id=30]
 [ext_resource path="res://UI/Hud/FadeIn/FadeIn.gd" type="Script" id=31]
 [ext_resource path="res://Music.gd" type="Script" id=32]
+[ext_resource path="res://FadeOut.gd" type="Script" id=33]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -191,7 +192,9 @@ texture = ExtResource( 22 )
 script = ExtResource( 16 )
 direction = 7
 
-[node name="Music" type="AudioStreamPlayer" parent="Ingame"]
+[node name="Music" type="AudioStreamPlayer" parent="Ingame" groups=[
+"MUSIC",
+]]
 stream = ExtResource( 8 )
 volume_db = -80.0
 autoplay = true
@@ -246,5 +249,19 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="CanvasLayer/HUD/FadeIn"]
+
+[node name="FadeOut" type="ColorRect" parent="CanvasLayer/HUD" groups=[
+"FADEOUT",
+]]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 33 )
+
+[node name="Tween" type="Tween" parent="CanvasLayer/HUD/FadeOut"]
 [connection signal="timeout" from="FakeSoundGenerator/Timer" to="FakeSoundGenerator" method="_on_Timer_timeout"]
 [connection signal="tween_all_completed" from="CanvasLayer/HUD/FadeIn/Tween" to="CanvasLayer/HUD/FadeIn" method="_on_Tween_tween_all_completed"]
+[connection signal="fade_out_done" from="CanvasLayer/HUD/FadeOut" to="." method="_on_FadeOut_fade_out_done"]
+[connection signal="tween_all_completed" from="CanvasLayer/HUD/FadeOut/Tween" to="CanvasLayer/HUD/FadeOut" method="_on_Tween_tween_all_completed"]

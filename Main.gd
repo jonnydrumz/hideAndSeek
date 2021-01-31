@@ -17,3 +17,7 @@ func _on_NetworkManager_player_accepted():
 
 func _on_NetworkManager_player_data_received(players):
 	$StartMenu.update_players(players)
+
+func _on_FadeOut_fade_out_done():
+	get_tree().change_scene("res://Menu.tscn")
+
