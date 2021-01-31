@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ghostDie1.ogg-d0d5450325563b0e0191a4a770648475.oggstr"
+
+[deps]
+
+source_file="res://Audio/Effects/ghostDie1.ogg"
+dest_files=[ "res://.import/ghostDie1.ogg-d0d5450325563b0e0191a4a770648475.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

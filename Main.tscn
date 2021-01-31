@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ProceduralLevel.tscn" type="PackedScene" id=2]
@@ -32,6 +32,22 @@
 [ext_resource path="res://Textures/Hud/lamp_counter_on.png" type="Texture" id=30]
 [ext_resource path="res://UI/Hud/FadeIn/FadeIn.gd" type="Script" id=31]
 [ext_resource path="res://Music.gd" type="Script" id=32]
+[ext_resource path="res://FadeOut.gd" type="Script" id=33]
+[ext_resource path="res://UI/Hud/EndScreen/EndScreen.gd" type="Script" id=34]
+[ext_resource path="res://Textures/Menu/Fonts/ARIALNB.TTF" type="DynamicFontData" id=35]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0012_Capa-33.png" type="Texture" id=36]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0002_farol_iluminado.png" type="Texture" id=37]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0003_farol-(combinado).png" type="Texture" id=38]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0005_reiniciar-iluminado.png" type="Texture" id=39]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0007_reiniciar-encima.png" type="Texture" id=40]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0009_reiniciar.png" type="Texture" id=41]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0008_menu.png" type="Texture" id=42]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0004_menuiluminado.png" type="Texture" id=43]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0006_menu-encima.png" type="Texture" id=44]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0010_duracion.png" type="Texture" id=45]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0011_logo.png" type="Texture" id=46]
+[ext_resource path="res://Audio/Effects/lampSound.ogg" type="AudioStream" id=47]
+[ext_resource path="res://Audio/Sfx/StartButton.ogg" type="AudioStream" id=48]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -43,6 +59,69 @@ glow_bloom = 0.1
 glow_blend_mode = 1
 glow_hdr_threshold = 0.07
 glow_bicubic_upscale = true
+
+[sub_resource type="DynamicFont" id=2]
+size = 70
+use_filter = true
+font_data = ExtResource( 35 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Anim"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Candle1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_end_open_animation"
+} ]
+}
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -191,7 +270,9 @@ texture = ExtResource( 22 )
 script = ExtResource( 16 )
 direction = 7
 
-[node name="Music" type="AudioStreamPlayer" parent="Ingame"]
+[node name="Music" type="AudioStreamPlayer" parent="Ingame" groups=[
+"MUSIC",
+]]
 stream = ExtResource( 8 )
 volume_db = -80.0
 autoplay = true
@@ -235,6 +316,117 @@ __meta__ = {
 ready_texture = ExtResource( 30 )
 used_texture = ExtResource( 28 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HUD/LampCounter"]
+stream = ExtResource( 47 )
+volume_db = -14.0
+
+[node name="EndScreen" type="Control" parent="CanvasLayer/HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fondo" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 36 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Candle2" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 38 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Candle1" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
+modulate = Color( 1, 1, 1, 0.990116 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 37 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeValue" type="Label" parent="CanvasLayer/HUD/EndScreen"]
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.4
+margin_left = 32.0
+margin_top = -40.0
+margin_bottom = -3.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.219608, 0.54902, 0.439216, 1 )
+text = "33:59"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reinicio_0010_duracion" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 45 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/HUD/EndScreen"]
+anims/Anim = SubResource( 3 )
+anims/Open = SubResource( 4 )
+
+[node name="reinicio_0011_logo" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" type="TextureButton" parent="CanvasLayer/HUD/EndScreen"]
+margin_left = 240.0
+margin_top = 492.0
+margin_right = 448.0
+margin_bottom = 544.0
+texture_normal = ExtResource( 41 )
+texture_pressed = ExtResource( 39 )
+texture_hover = ExtResource( 40 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HUD/EndScreen/RetryButton"]
+stream = ExtResource( 48 )
+volume_db = -5.0
+
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer/HUD/EndScreen"]
+margin_left = 608.0
+margin_top = 489.0
+margin_right = 760.0
+margin_bottom = 544.0
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 43 )
+texture_hover = ExtResource( 44 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HUD/EndScreen/QuitButton"]
+stream = ExtResource( 48 )
+volume_db = -5.0
+
 [node name="FadeIn" type="ColorRect" parent="CanvasLayer/HUD"]
 visible = false
 anchor_right = 1.0
@@ -246,5 +438,24 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="CanvasLayer/HUD/FadeIn"]
+
+[node name="FadeOut" type="ColorRect" parent="CanvasLayer/HUD" groups=[
+"FADEOUT",
+]]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 33 )
+
+[node name="Tween" type="Tween" parent="CanvasLayer/HUD/FadeOut"]
 [connection signal="timeout" from="FakeSoundGenerator/Timer" to="FakeSoundGenerator" method="_on_Timer_timeout"]
+[connection signal="game_completed" from="CanvasLayer/HUD/Enemies" to="." method="_on_Enemies_game_completed"]
+[connection signal="quit_pressed" from="CanvasLayer/HUD/EndScreen" to="." method="_on_EndScreen_quit_pressed"]
+[connection signal="retry_pressed" from="CanvasLayer/HUD/EndScreen" to="." method="_on_EndScreen_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/EndScreen/RetryButton" to="CanvasLayer/HUD/EndScreen" method="_on_RetryButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/EndScreen/QuitButton" to="CanvasLayer/HUD/EndScreen" method="_on_QuitButton_pressed"]
 [connection signal="tween_all_completed" from="CanvasLayer/HUD/FadeIn/Tween" to="CanvasLayer/HUD/FadeIn" method="_on_Tween_tween_all_completed"]
+[connection signal="fade_out_done" from="CanvasLayer/HUD/FadeOut" to="." method="_on_FadeOut_fade_out_done"]
+[connection signal="tween_all_completed" from="CanvasLayer/HUD/FadeOut/Tween" to="CanvasLayer/HUD/FadeOut" method="_on_Tween_tween_all_completed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lampSound.ogg-e20a95d15a6e3937c77d8e3a75718a2f.oggstr"
+
+[deps]
+
+source_file="res://Audio/Effects/lampSound.ogg"
+dest_files=[ "res://.import/lampSound.ogg-e20a95d15a6e3937c77d8e3a75718a2f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

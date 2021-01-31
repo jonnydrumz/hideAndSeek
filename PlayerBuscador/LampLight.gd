@@ -16,7 +16,7 @@ var time : int
 
 func turn_on():
 	if not ready: return
-	area.set_collision_layer_bit(0, true)
+	area.set_collision_layer_bit(15, true)
 	enabled = true
 	running = true
 	ready = false
@@ -26,10 +26,11 @@ func turn_on():
 	tween.start()
 	get_tree().call_group("PLAYER_LIGHT", "colorize")
 	get_tree().call_group("LAMP_LISTENER", "on_lamp_used")
+	$AudioStreamPlayer.play()
 
 func _on_Tween_tween_all_completed():
 	enabled = false
-	area.set_collision_layer_bit(0, false)
+	area.set_collision_layer_bit(15, false)
 	running = false
 	timer.start()
 

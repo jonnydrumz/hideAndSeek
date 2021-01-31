@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Menu/fondo.png" type="Texture" id=2]
@@ -12,11 +12,15 @@
 [ext_resource path="res://Textures/Menu/textos.png" type="Texture" id=10]
 [ext_resource path="res://Textures/Menu/Fonts/ARIALNB.TTF" type="DynamicFontData" id=11]
 [ext_resource path="res://FadeIn.gd" type="Script" id=12]
-[ext_resource path="res://Audio/Ost/Title.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Audio/Ost/PeekaBooh.ogg" type="AudioStream" id=13]
 [ext_resource path="res://FadeOut.gd" type="Script" id=14]
 [ext_resource path="res://Textures/Menu/Instrucciones_dificultad.png" type="Texture" id=15]
+[ext_resource path="res://Music.gd" type="Script" id=16]
+[ext_resource path="res://Audio/Sfx/StartButton.ogg" type="AudioStream" id=17]
 
 [sub_resource type="DynamicFont" id=1]
+size = 10
+use_filter = true
 font_data = ExtResource( 11 )
 
 [node name="Menu" type="Control"]
@@ -111,6 +115,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Iniciar"]
+stream = ExtResource( 17 )
+volume_db = -5.0
+
 [node name="EnemyNumber" type="HSlider" parent="."]
 margin_left = 880.0
 margin_top = 359.092
@@ -164,9 +172,9 @@ __meta__ = {
 }
 
 [node name="MapWidth" type="HSlider" parent="."]
-margin_left = 880.0
+margin_left = 879.719
 margin_top = 412.0
-margin_right = 960.0
+margin_right = 959.719
 margin_bottom = 446.0
 min_value = 3.0
 max_value = 10.0
@@ -191,12 +199,15 @@ __meta__ = {
 
 [node name="GraveAmount" type="HSlider" parent="."]
 margin_left = 880.0
-margin_top = 438.212
+margin_top = 437.931
 margin_right = 960.0
-margin_bottom = 472.212
+margin_bottom = 471.931
 max_value = 1.0
 step = 0.05
 value = 0.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label3" type="Label" parent="GraveAmount"]
 visible = false
@@ -212,9 +223,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
-autoplay = true
+[node name="FakeSoundsAmount" type="HSlider" parent="."]
+margin_left = 880.0
+margin_top = 464.756
+margin_right = 960.0
+margin_bottom = 498.756
+max_value = 1.0
+step = 0.1
+value = 0.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="FakeSoundsAmount"]
+margin_left = -150.0
+margin_top = 8.0
+margin_right = -11.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.709804, 0.498039, 1 )
+text = "Sonidos aleatorios"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="FadeIn" type="ColorRect" parent="."]
 visible = false
@@ -235,6 +267,12 @@ color = Color( 0, 0, 0, 1 )
 script = ExtResource( 14 )
 
 [node name="Tween" type="Tween" parent="FadeOut"]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -80.0
+autoplay = true
+script = ExtResource( 16 )
 [connection signal="pressed" from="Iniciar" to="." method="_on_Iniciar_pressed"]
 [connection signal="fade_out_done" from="FadeOut" to="." method="_on_FadeOut_fade_out_done"]
 [connection signal="tween_all_completed" from="FadeOut/Tween" to="FadeOut" method="_on_Tween_tween_all_completed"]

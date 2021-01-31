@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/PeekaBooh.ogg-2660d22303f76c0badb6cd0fb21cad49.oggstr"
+
+[deps]
+
+source_file="res://Audio/Ost/PeekaBooh.ogg"
+dest_files=[ "res://.import/PeekaBooh.ogg-2660d22303f76c0badb6cd0fb21cad49.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

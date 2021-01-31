@@ -44,7 +44,9 @@ func _action(delta : float):
 	if Input.is_action_just_pressed("ui_accept"):
 		_lamp_turn_on()
 	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().change_scene("res://Menu.tscn")
+		get_tree().call_group("FADEOUT", "fade_out")
+		get_tree().call_group("MUSIC", "fade_out")
+		set_physics_process(false)
 
 func _animate(delta : float):
 	if velocity.length() > .1:
