@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Menu/fondo.png" type="Texture" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://Textures/Menu/Instrucciones_dificultad.png" type="Texture" id=15]
 [ext_resource path="res://Music.gd" type="Script" id=16]
 [ext_resource path="res://Audio/Sfx/StartButton.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Textures/Menu/inicio_0003_salir-copia-2-(combinado).png" type="Texture" id=18]
+[ext_resource path="res://Textures/Menu/inicio_0001_salir-copia-2-(combinado)-copia-2.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -116,6 +118,26 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Iniciar"]
+stream = ExtResource( 17 )
+volume_db = -5.0
+
+[node name="Salir" type="TextureButton" parent="."]
+anchor_left = 0.8
+anchor_top = 0.795
+anchor_right = 0.8
+anchor_bottom = 0.878
+margin_left = 55.8
+margin_top = 38.0
+margin_right = 142.8
+margin_bottom = 16.2
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 19 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Salir"]
 stream = ExtResource( 17 )
 volume_db = -5.0
 
@@ -274,5 +296,6 @@ volume_db = -80.0
 autoplay = true
 script = ExtResource( 16 )
 [connection signal="pressed" from="Iniciar" to="." method="_on_Iniciar_pressed"]
+[connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
 [connection signal="fade_out_done" from="FadeOut" to="." method="_on_FadeOut_fade_out_done"]
 [connection signal="tween_all_completed" from="FadeOut/Tween" to="FadeOut" method="_on_Tween_tween_all_completed"]

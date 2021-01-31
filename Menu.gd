@@ -6,6 +6,9 @@ func _on_Iniciar_pressed():
 	$Iniciar.disabled = true
 	$Iniciar/AudioStreamPlayer.play()
 
+func _on_Salir_pressed():
+	get_tree().quit()
+
 func _on_FadeOut_fade_out_done():
 	LevelConfiguration.map_height = $MapHeight.value
 	LevelConfiguration.map_width = $MapWidth.value
@@ -13,3 +16,4 @@ func _on_FadeOut_fade_out_done():
 	LevelConfiguration.objects_amount = $GraveAmount.value
 	LevelConfiguration.fakesounds_amount = $FakeSoundsAmount.value
 	get_tree().change_scene("Main.tscn")
+
