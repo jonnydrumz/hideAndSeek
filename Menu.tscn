@@ -1,58 +1,189 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://Textures/Menu/fondo.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Menu/start_on.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Menu/prota.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Menu/start_off.png" type="Texture" id=5]
+[ext_resource path="res://Textures/Menu/logo.png" type="Texture" id=6]
+[ext_resource path="res://Textures/Menu/fantasma1.png" type="Texture" id=7]
+[ext_resource path="res://Textures/Menu/fantasma3.png" type="Texture" id=8]
+[ext_resource path="res://Textures/Menu/fantasma2.png" type="Texture" id=9]
+[ext_resource path="res://Textures/Menu/textos.png" type="Texture" id=10]
+[ext_resource path="res://Textures/Menu/Fonts/ARIALNB.TTF" type="DynamicFontData" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 11 )
 
 [node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Iniciar" type="Button" parent="."]
-margin_left = 425.225
-margin_top = 393.724
-margin_right = 629.225
-margin_bottom = 483.724
-text = "INICIAR"
+[node name="fondo" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EnemyNumber" type="LineEdit" parent="."]
-margin_left = 871.0
-margin_top = 318.0
+[node name="personaje" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fantasma1" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fantasma2" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fantasma3" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="creditos" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Iniciar" type="TextureButton" parent="."]
+anchor_left = 0.445
+anchor_top = 0.795
+anchor_right = 0.582
+anchor_bottom = 0.878
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyNumber" type="HSlider" parent="."]
+margin_left = 875.0
+margin_top = 347.092
 margin_right = 958.0
-margin_bottom = 351.0
+margin_bottom = 381.092
+min_value = 1.0
+max_value = 50.0
+value = 5.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="EnemyNumber"]
-margin_left = -155.389
-margin_top = 7.56381
-margin_right = -16.3893
-margin_bottom = 21.5638
+[node name="Label2" type="Label" parent="EnemyNumber"]
+margin_left = -148.063
+margin_top = 7.94461
+margin_right = -9.06317
+margin_bottom = 26.9446
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.219608, 0.54902, 0.337255, 1 )
 text = "Número de enemigos"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MapSize" type="LineEdit" parent="."]
-margin_left = 873.3
-margin_top = 376.01
-margin_right = 956.3
-margin_bottom = 410.01
+[node name="MapSize" type="HSlider" parent="."]
+margin_left = 875.848
+margin_top = 388.566
+margin_right = 958.848
+margin_bottom = 422.566
+min_value = 2.0
+max_value = 10.0
+value = 4.0
+
+[node name="Label" type="Label" parent="MapSize"]
+margin_left = -191.911
+margin_top = 7.47012
+margin_right = -5.91064
+margin_bottom = 26.4701
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.219608, 0.54902, 0.337255, 1 )
+text = "Tamaño del mapa (horizontal)"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="MapSize"]
-margin_left = -158.33
-margin_top = 10.5767
-margin_right = -19.3296
-margin_bottom = 24.5767
-text = "Tamaño del mapa"
+[node name="MapSize2" type="HSlider" parent="."]
+margin_left = 875.848
+margin_top = 427.566
+margin_right = 958.848
+margin_bottom = 461.566
+min_value = 2.0
+max_value = 10.0
+value = 4.0
+
+[node name="Label" type="Label" parent="MapSize2"]
+margin_left = -175.911
+margin_top = 7.47012
+margin_right = -7.91064
+margin_bottom = 26.4701
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.219608, 0.54902, 0.337255, 1 )
+text = "Tamaño del mapa (vertical)"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraveAmount" type="HSlider" parent="."]
+margin_left = 876.435
+margin_top = 469.212
+margin_right = 959.435
+margin_bottom = 503.212
+max_value = 1.0
+step = 0.05
+value = 0.1
+
+[node name="Label3" type="Label" parent="GraveAmount"]
+margin_left = -150.498
+margin_top = 4.82449
+margin_right = -11.498
+margin_bottom = 23.8245
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.219608, 0.54902, 0.337255, 1 )
+text = "Elementos del mapa"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
