@@ -8,6 +8,7 @@ func on_lamp_used():
 
 func on_lamp_ready():
 	texture = ready_texture
+	$AudioStreamPlayer.play()
 
 func _ready():
 	texture = ready_texture

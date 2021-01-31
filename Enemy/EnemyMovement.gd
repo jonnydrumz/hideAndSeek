@@ -33,6 +33,7 @@ func death():
 	$Timer.stop()
 	$TimerSteps.stop()
 	$TimerShow.stop()
+	$AudioStreamPlayer.play()
 
 func _ready():
 	yield(get_tree().create_timer(rand_range(.25, 5.0)), "timeout")

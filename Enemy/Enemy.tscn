@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Textures/Enemy/fantasmas_0000s_0007_Capa-11.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/EnemyMovement.gd" type="Script" id=2]
 [ext_resource path="res://Audio/Effects/chains1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Enemy/Steps.tscn" type="PackedScene" id=4]
 [ext_resource path="res://FakeAudio/FakeAudio.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Audio/Effects/ghostDie1.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.8243, 13.931 )
@@ -100,6 +101,9 @@ wait_time = 2.0
 autoplay = "Walk"
 anims/Stop = SubResource( 2 )
 anims/Walk = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="TimerSteps" to="." method="_on_TimerSteps_timeout"]
