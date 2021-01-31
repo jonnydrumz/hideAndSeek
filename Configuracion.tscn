@@ -1,0 +1,48 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyNumber" type="LineEdit" parent="."]
+margin_left = 231.0
+margin_top = 161.0
+margin_right = 307.0
+margin_bottom = 194.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EnemyNumber"]
+margin_left = -155.389
+margin_top = 7.56381
+margin_right = -16.3893
+margin_bottom = 21.5638
+text = "Número de enemigos"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapSize" type="LineEdit" parent="."]
+margin_left = 232.0
+margin_top = 216.0
+margin_right = 315.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="MapSize"]
+margin_left = -157.07
+margin_top = 8.05688
+margin_right = -18.0697
+margin_bottom = 22.0569
+text = "Tamaño del mapa"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
