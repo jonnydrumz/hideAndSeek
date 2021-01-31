@@ -104,7 +104,7 @@ margin_top = 347.092
 margin_right = 958.0
 margin_bottom = 381.092
 min_value = 1.0
-max_value = 50.0
+max_value = 30.0
 value = 5.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -123,16 +123,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MapSize" type="HSlider" parent="."]
+[node name="MapHeight" type="HSlider" parent="."]
 margin_left = 875.848
 margin_top = 388.566
 margin_right = 958.848
 margin_bottom = 422.566
-min_value = 2.0
+min_value = 3.0
 max_value = 10.0
 value = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="MapSize"]
+[node name="Label" type="Label" parent="MapHeight"]
 margin_left = -191.911
 margin_top = 7.47012
 margin_right = -5.91064
@@ -145,16 +148,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MapSize2" type="HSlider" parent="."]
+[node name="MapWidth" type="HSlider" parent="."]
 margin_left = 875.848
 margin_top = 427.566
 margin_right = 958.848
 margin_bottom = 461.566
-min_value = 2.0
+min_value = 3.0
 max_value = 10.0
 value = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="MapSize2"]
+[node name="Label" type="Label" parent="MapWidth"]
 margin_left = -175.911
 margin_top = 7.47012
 margin_right = -7.91064
