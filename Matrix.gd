@@ -16,9 +16,9 @@ enum Tile {
 	HIERBA2
 }
 
-export(float, .0, 1.0) var amount : float = .5
-export(int)            var width  : int = 4
-export(int)            var height : int = 4
+onready var amount : float = LevelConfiguration.objects_amount
+onready var width  : int = LevelConfiguration.map_width
+onready var height : int = LevelConfiguration.map_height
 
 var data = []
 

@@ -24,6 +24,10 @@ config/name="HideAndSeek"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+LevelConfiguration="*res://Singletone/LevelConfiguration.gd"
+
 [display]
 
 window/stretch/mode="viewport"

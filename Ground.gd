@@ -1,7 +1,7 @@
 extends Node2D
 
-export(int) var width  : int = 3
-export(int) var height : int = 3
+onready var width  : int = LevelConfiguration.map_width
+onready var height : int = LevelConfiguration.map_height
 
 export(Texture) var floor_texture : Texture
 

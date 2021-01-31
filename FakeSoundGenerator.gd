@@ -3,10 +3,13 @@ extends Node2D
 export(PackedScene) var audio_template : PackedScene
 export(Array, AudioStream) var audio_streams : Array
 
-export(float) var min_x : float = -2000
-export(float) var max_x : float = 2000
-export(float) var min_y : float = -1000
-export(float) var max_y : float = 1000
+#onready var width  : int = LevelConfiguration.map_width
+#onready var height : int = LevelConfiguration.map_height
+
+onready var min_x : float = -2000
+onready var max_x : float = 2000
+onready var min_y : float = -1000
+onready var max_y : float = 1000
 
 onready var timer := $Timer
 
