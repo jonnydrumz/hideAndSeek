@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Textures/Enemy/fantasmas_0000s_0007_Capa-11.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/EnemyMovement.gd" type="Script" id=2]
@@ -7,7 +7,61 @@
 [ext_resource path="res://FakeAudio/FakeAudio.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9.8243, 13.3583 )
+extents = Vector2( 9.8243, 13.931 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Stop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 8 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.45 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 8 ), Vector2( 0, 6 ), Vector2( 0, 8 ), Vector2( 0, 6 ) ]
+}
 
 [node name="Enemy" type="KinematicBody2D" groups=[
 "GHOST",
@@ -15,13 +69,14 @@ extents = Vector2( 9.8243, 13.3583 )
 script = ExtResource( 2 )
 steps = ExtResource( 4 )
 
-[node name="Ghost" type="Sprite" parent="."]
-position = Vector2( 0, -4.88094 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 6.51094 )
+scale = Vector2( 0.5, 0.46542 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -48 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.944946, -1.845 )
+position = Vector2( -0.944946, -13.845 )
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
@@ -38,6 +93,11 @@ stream = ExtResource( 3 )
 wait_time = 2.0
 
 [node name="VisibilizationTween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Walk"
+anims/Stop = SubResource( 4 )
+anims/Walk = SubResource( 5 )
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="TimerSteps" to="." method="_on_TimerSteps_timeout"]

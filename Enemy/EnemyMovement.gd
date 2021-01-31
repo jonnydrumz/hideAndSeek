@@ -19,7 +19,7 @@ var seconds
 func death():
 	var tween := Tween.new()
 	add_child(tween)
-	$Ghost.show()
+	$Sprite.show()
 	modulate.a = 1.0
 	tween.connect("tween_all_completed", get_tree(), "call_group", ["ENEMY_DEATH_LISTENER", "on_enemy_death"])
 	tween.connect("tween_all_completed", tween, "queue_free")
@@ -43,7 +43,7 @@ func _ready():
 func _on_Tween_tween_all_completed():
 	$Timer.start(rand_range(5.0, 15.0))
 	$SFX.stop()
-	$Ghost.hide()
+	$Sprite.hide()
 	enemy_visible = false
 	walking = false
 
