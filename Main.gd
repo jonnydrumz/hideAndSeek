@@ -23,12 +23,16 @@ func _on_NetworkManager_player_data_received(players):
 	$StartMenu.update_players(players)
 
 func _on_FadeOut_fade_out_done():
-	get_tree().change_scene("res://Menu.tscn")
+	if goto_menu_on_quit:
+		get_tree().change_scene("res://Menu.tscn")
+	else:
+		get_tree().reload_current_scene()
 
 func _on_Enemies_game_completed():
 	var current_time = OS.get_system_time_secs()
 	var elapsed = current_time - initial_time
 	$CanvasLayer/HUD/EndScreen.open(elapsed)
+	$Ingame/ProceduralLevel/Player.set_physics_process(false)
 
 func _on_EndScreen_quit_pressed():
 	goto_menu_on_quit = true

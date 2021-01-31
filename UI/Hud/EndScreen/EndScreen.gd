@@ -6,7 +6,10 @@ signal quit_pressed
 func open(elapsed):
 	var time = _str_time(elapsed)
 	$TimeValue.text = time
-	show()
+	$AnimationPlayer.play("Open")
+
+func _end_open_animation():
+	$AnimationPlayer.play("Anim")
 
 func _on_RetryButton_pressed():
 	emit_signal("retry_pressed")

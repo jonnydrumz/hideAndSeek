@@ -12,16 +12,18 @@ func _ready():
 
 func _update_skulls():
 	_clear_skulls()
-	_add_skulls()
-	if get_child_count() <= 0:
+	var enemies = get_tree().get_nodes_in_group("GHOST")
+	_add_skulls(enemies)
+	print(enemies.size())
+	if enemies.size() <= 0:
 		emit_signal("game_completed")
 
 func _clear_skulls():
 	for child in get_children():
 		child.queue_free()
 
-func _add_skulls():
-	for enemy in get_tree().get_nodes_in_group("GHOST"):
+func _add_skulls(enemies):
+	for enemy in enemies:
 		var item = TextureRect.new()
 		item.texture = item_texture
 		add_child(item)
