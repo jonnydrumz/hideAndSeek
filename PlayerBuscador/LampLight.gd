@@ -25,6 +25,7 @@ func turn_on():
 			3.0, .0, light_time, Tween.TRANS_CUBIC, Tween.EASE_IN)
 	tween.start()
 	get_tree().call_group("PLAYER_LIGHT", "colorize")
+	get_tree().call_group("LAMP_LISTENER", "on_lamp_used")
 
 func _on_Tween_tween_all_completed():
 	enabled = false
@@ -37,6 +38,8 @@ func _on_Timer_timeout():
 	if time <= 0:
 		timer.stop()
 		ready = true
+		get_tree().call_group("LAMP_LISTENER", "on_lamp_ready")
+
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("GHOST"):

@@ -42,4 +42,3 @@ wait_time = 2.0
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="TimerSteps" to="." method="_on_TimerSteps_timeout"]
 [connection signal="timeout" from="TimerShow" to="." method="_on_TimerShow_timeout"]
-[connection signal="tween_all_completed" from="VisibilizationTween" to="." method="_on_VisibilizationTween_tween_all_completed"]

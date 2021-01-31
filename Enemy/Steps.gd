@@ -17,12 +17,10 @@ func rot_pos(initial_pos : Vector2, destination_pos : Vector2):
 	$Derecho.rotation = $Izquierdo.rotation
 	global_position = initial_pos
 
-
-#func _enter_tree():
-#	hide()
-#	$Izquierdo.hide()
-#	$Derecho.hide()
-
+func _enter_tree():
+	hide()
+	$Izquierdo.hide()
+	$Derecho.hide()
 
 func _on_Tween_tween_all_completed():
 	queue_free()

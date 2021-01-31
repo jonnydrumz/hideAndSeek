@@ -16,8 +16,24 @@ var tombs
 var current_tomb
 var seconds
 
+func death():
+	var tween := Tween.new()
+	add_child(tween)
+	$Ghost.show()
+	modulate.a = 1.0
+	tween.connect("tween_all_completed", get_tree(), "call_group", ["ENEMY_DEATH_LISTENER", "on_enemy_death"])
+	tween.connect("tween_all_completed", tween, "queue_free")
+	tween.connect("tween_all_completed", self, "queue_free")
+	tween.interpolate_property(self, "scale:x",
+			scale.x, .0, .5, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
+	tween.start()
+	$Tween.stop_all()
+	$Timer.stop()
+	$TimerSteps.stop()
+	$TimerShow.stop()
+
 func _ready():
-	yield(get_tree().create_timer(rand_range(.25, 4.0)), "timeout")
+	yield(get_tree().create_timer(rand_range(.25, 5.0)), "timeout")
 	tombs = get_tree().get_nodes_in_group("TOMB")
 	if tombs.size() > 0:
 		call_deferred("movement")
@@ -48,6 +64,7 @@ func movement():
 
 func _on_TimerSteps_timeout():
 	if walking:
+		get_tree().call_group("SLM", "follow", self)
 		var step = steps.instance()
 		if (steps_counter % 2 == 0):
 			step.is_left = true
@@ -66,7 +83,5 @@ func _on_TimerShow_timeout():
 		visibilization_tween.interpolate_property(self, "modulate:a", modulate.a, 1.0, 0.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		visibilization_tween.start()
 		enemy_visible = true
-
-
-func _on_VisibilizationTween_tween_all_completed():
-	pass # Replace with function body.
+	set_collision_mask_bit(0, enemy_visible)
+	set_collision_layer_bit(0, enemy_visible)

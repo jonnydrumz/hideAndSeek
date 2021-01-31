@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ProceduralLevel.tscn" type="PackedScene" id=2]
@@ -25,6 +25,11 @@
 [ext_resource path="res://Textures/Player/ruido_0000_Capa-5-copia-3.png" type="Texture" id=23]
 [ext_resource path="res://Ground.gd" type="Script" id=24]
 [ext_resource path="res://EnemyGenerator.gd" type="Script" id=25]
+[ext_resource path="res://Textures/Hud/contador_fantasmas.png" type="Texture" id=26]
+[ext_resource path="res://UI/Hud/Enemies/Enemies.gd" type="Script" id=27]
+[ext_resource path="res://Textures/Hud/lamp_counter.png" type="Texture" id=28]
+[ext_resource path="res://UI/Hud/Lamp/LampCounter.gd" type="Script" id=29]
+[ext_resource path="res://Textures/Hud/lamp_counter_on.png" type="Texture" id=30]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -182,4 +187,42 @@ direction = 7
 stream = ExtResource( 8 )
 volume_db = -6.0
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemies" type="HBoxContainer" parent="CanvasLayer/HUD" groups=[
+"ENEMY_DEATH_LISTENER",
+]]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+item_texture = ExtResource( 26 )
+
+[node name="LampCounter" type="TextureRect" parent="CanvasLayer/HUD" groups=[
+"LAMP_LISTENER",
+]]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -96.0
+margin_right = 64.0
+margin_bottom = -5.0
+texture = ExtResource( 28 )
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ready_texture = ExtResource( 30 )
+used_texture = ExtResource( 28 )
 [connection signal="timeout" from="FakeSoundGenerator/Timer" to="FakeSoundGenerator" method="_on_Timer_timeout"]
