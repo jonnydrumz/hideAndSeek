@@ -87,7 +87,7 @@ floor_texture = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="Ingame/ProceduralLevel/Player"]
 current = true
-zoom = Vector2( 5, 5 )
+zoom = Vector2( 0.5, 0.5 )
 
 [node name="CameraCosas" type="Node2D" parent="Ingame/ProceduralLevel/Player/Camera2D"]
 
@@ -100,6 +100,7 @@ texture = ExtResource( 5 )
 "AUDIO_LOCATOR_LISTENER",
 ]]
 visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 0, -88 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -110,6 +111,7 @@ script = ExtResource( 16 )
 "AUDIO_LOCATOR_LISTENER",
 ]]
 visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 0, 88 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -121,6 +123,7 @@ direction = 1
 "AUDIO_LOCATOR_LISTENER",
 ]]
 visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( -192, 0 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -132,6 +135,7 @@ direction = 2
 "AUDIO_LOCATOR_LISTENER",
 ]]
 visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 192, 0 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -143,6 +147,7 @@ direction = 3
 "AUDIO_LOCATOR_LISTENER",
 ]]
 visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( -48, 24 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -154,6 +159,7 @@ direction = 4
 "AUDIO_LOCATOR_LISTENER",
 ]]
 visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 48, 24 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -165,6 +171,7 @@ direction = 5
 "AUDIO_LOCATOR_LISTENER",
 ]]
 visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( -48, -24 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50
@@ -176,6 +183,7 @@ direction = 6
 "AUDIO_LOCATOR_LISTENER",
 ]]
 visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 48, -24 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 50

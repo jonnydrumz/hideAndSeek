@@ -61,6 +61,7 @@ func movement():
 	tween.interpolate_property($SFX, "volume_db", 0, -10, transition_duration, transition_type, Tween.EASE_IN, 0)
 	tween.start()
 	walking = true
+	$Sprite.show()
 
 func _on_TimerSteps_timeout():
 	if walking:

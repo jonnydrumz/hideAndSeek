@@ -10,7 +10,8 @@ export(Direction) var direction : int = Direction.UP
 
 var tween : Tween
 
-const FLOAT_EPSILON = PI * .25
+const FLOAT_EPSILON = PI * .15
+const TWOPI = PI * 2.0
 
 const RIGHT = .0
 const LEFT = PI
@@ -22,37 +23,49 @@ const RIGHT_DOWN = PI + PI * .25
 const LEFT_DOWN = -PI - PI * .25
 
 func audio_locator_sound_registered(sound_pos : float):
-	if direction == Direction.UP and _is_up(sound_pos) \
-	or direction == Direction.LEFT_UP and _is_leftup(sound_pos) \
-	or direction == Direction.RIGHT_UP and _is_rightup(sound_pos) \
-	or direction == Direction.LEFT and _is_left(sound_pos) \
-	or direction == Direction.RIGHT and _is_right(sound_pos) \
-	or direction == Direction.LEFT_DOWN and _is_leftdown(sound_pos) \
-	or direction == Direction.RIGHT_DOWN and _is_rightdown(sound_pos) \
-	or direction == Direction.DOWN and _is_down(sound_pos):
-		show()
-		tween.interpolate_property(
-				self, "modulate:a",
-				1.0, .0, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
-		)
-		tween.start()
+	var dir = sound_pos / 8.0 + TWOPI
 
-func _is_up(sound_pos : float) -> bool:
-	return compare_floats(sound_pos, RIGHT)
-func _is_down(sound_pos : float) -> bool:
-	return compare_floats(sound_pos, DOWN)
-func _is_left(sound_pos : float) -> bool:
-	return compare_floats(sound_pos, LEFT)
-func _is_right(sound_pos : float) -> bool:
-	return compare_floats(sound_pos, DOWN)
-func _is_leftup(sound_pos : float) -> bool:
-	return compare_floats(sound_pos, LEFT_UP)
-func _is_rightup(sound_pos : float) -> bool:
-	return compare_floats(sound_pos, RIGHT_UP)
-func _is_leftdown(sound_pos : float) -> bool:
-	return compare_floats(sound_pos, LEFT_DOWN)
-func _is_rightdown(sound_pos : float) -> bool:
-	return compare_floats(sound_pos, RIGHT_DOWN)
+	if direction == Direction.UP and _is_up(dir):
+		_show()
+	elif direction == Direction.RIGHT_UP and _is_rightup(dir):
+		_show()
+	elif direction == Direction.RIGHT and _is_right(dir):
+		_show()
+	elif direction == Direction.RIGHT_DOWN and _is_rightdown(dir):
+		_show()
+	elif direction == Direction.DOWN and _is_down(dir):
+		_show()
+	elif direction == Direction.LEFT_DOWN and _is_leftdown(dir):
+		_show()
+	elif direction == Direction.LEFT and _is_left(dir):
+		_show()
+	elif direction == Direction.LEFT_UP and _is_leftup(dir):
+		_show()
+
+func _is_up(texture_pos : float) -> bool:
+	return texture_pos >= 6.04 and texture_pos < 6.14
+func _is_rightup(texture_pos : float) -> bool:
+	return texture_pos >= 6.14 and texture_pos < 6.21
+func _is_right(texture_pos : float) -> bool:
+	return texture_pos >= 6.21  and texture_pos < 6.3
+func _is_rightdown(texture_pos : float) -> bool:
+	return texture_pos >= 6.3 and texture_pos < 6.38
+func _is_down(texture_pos : float) -> bool:
+	return texture_pos >= 6.38 and texture_pos < 6.55
+func _is_leftdown(texture_pos : float) -> bool:
+	return texture_pos >= 6.55 and texture_pos < 6.62
+func _is_left(texture_pos : float) -> bool:
+	return texture_pos >= 6.62 or texture_pos < 5.95
+func _is_leftup(texture_pos : float) -> bool:
+	return texture_pos >= 5.95 and texture_pos < 6.04
+
+func _show():
+	show()
+	tween.interpolate_property(
+			self, "modulate:a",
+			.25, .0, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+	)
+	tween.start()
 
 static func compare_floats(a, b, epsilon = FLOAT_EPSILON):
 	return abs(a - b) <= epsilon
