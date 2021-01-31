@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 export(Texture) var item_texture : Texture
-export(int) var enemy_count : int = 30
+export(int) var enemy_count : int = LevelConfiguration.enemies_count
 
 func on_enemy_death():
 	if get_child_count() > 0:
