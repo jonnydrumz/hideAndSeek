@@ -16,11 +16,13 @@ var tombs
 var current_tomb
 var seconds
 
+
 func death():
 	var tween := Tween.new()
 	add_child(tween)
 	$Sprite.show()
 	modulate.a = 1.0
+	remove_from_group("GHOST")
 	tween.connect("tween_all_completed", get_tree(), "call_group", ["ENEMY_DEATH_LISTENER", "on_enemy_death"])
 	tween.connect("tween_all_completed", tween, "queue_free")
 	tween.connect("tween_all_completed", self, "queue_free")

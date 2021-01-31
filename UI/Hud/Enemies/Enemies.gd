@@ -2,16 +2,22 @@ extends HBoxContainer
 
 export(Texture) var item_texture : Texture
 
-onready var enemy_count : int = LevelConfiguration.enemies_count
-
 func on_enemy_death():
-	if get_child_count() > 0:
-		get_child(0).queue_free()
-	else:
-		get_tree().reload_current_scene()
+	_update_skulls()
 
 func _ready():
-	for i in range(enemy_count):
+	call_deferred("_update_skulls")
+
+func _update_skulls():
+	_clear_skulls()
+	_add_skulls()
+
+func _clear_skulls():
+	for child in get_children():
+		child.queue_free()
+
+func _add_skulls():
+	for enemy in get_tree().get_nodes_in_group("GHOST"):
 		var item = TextureRect.new()
 		item.texture = item_texture
 		add_child(item)
