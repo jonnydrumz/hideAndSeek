@@ -43,6 +43,8 @@ func _move(delta : float):
 func _action(delta : float):
 	if Input.is_action_just_pressed("ui_accept"):
 		_lamp_turn_on()
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().change_scene("res://Menu.tscn")
 
 func _animate(delta : float):
 	if velocity.length() > .1:

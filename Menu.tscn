@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Menu/fondo.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Textures/Menu/fantasma2.png" type="Texture" id=9]
 [ext_resource path="res://Textures/Menu/textos.png" type="Texture" id=10]
 [ext_resource path="res://Textures/Menu/Fonts/ARIALNB.TTF" type="DynamicFontData" id=11]
+[ext_resource path="res://Audio/Ost/Title.ogg" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 11 )
@@ -194,4 +195,8 @@ align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -6.0
 [connection signal="pressed" from="Iniciar" to="." method="_on_Iniciar_pressed"]
