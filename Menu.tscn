@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Menu/fondo.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://FadeOut.gd" type="Script" id=14]
 [ext_resource path="res://Textures/Menu/Instrucciones_dificultad.png" type="Texture" id=15]
 [ext_resource path="res://Music.gd" type="Script" id=16]
+[ext_resource path="res://Audio/Sfx/StartButton.ogg" type="AudioStream" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 11 )
@@ -111,6 +112,10 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Iniciar"]
+stream = ExtResource( 17 )
+volume_db = -5.0
 
 [node name="EnemyNumber" type="HSlider" parent="."]
 margin_left = 880.0
