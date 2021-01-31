@@ -11,4 +11,5 @@ func _on_FadeOut_fade_out_done():
 	LevelConfiguration.map_width = $MapWidth.value
 	LevelConfiguration.enemies_count = $EnemyNumber.value
 	LevelConfiguration.objects_amount = $GraveAmount.value
+	LevelConfiguration.fakesounds_amount = $FakeSoundsAmount.value
 	get_tree().change_scene("Main.tscn")

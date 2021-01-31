@@ -19,6 +19,8 @@
 [ext_resource path="res://Audio/Sfx/StartButton.ogg" type="AudioStream" id=17]
 
 [sub_resource type="DynamicFont" id=1]
+size = 10
+use_filter = true
 font_data = ExtResource( 11 )
 
 [node name="Menu" type="Control"]
@@ -170,9 +172,9 @@ __meta__ = {
 }
 
 [node name="MapWidth" type="HSlider" parent="."]
-margin_left = 880.0
+margin_left = 879.719
 margin_top = 412.0
-margin_right = 960.0
+margin_right = 959.719
 margin_bottom = 446.0
 min_value = 3.0
 max_value = 10.0
@@ -197,12 +199,15 @@ __meta__ = {
 
 [node name="GraveAmount" type="HSlider" parent="."]
 margin_left = 880.0
-margin_top = 438.212
+margin_top = 437.931
 margin_right = 960.0
-margin_bottom = 472.212
+margin_bottom = 471.931
 max_value = 1.0
 step = 0.05
 value = 0.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label3" type="Label" parent="GraveAmount"]
 visible = false
@@ -213,6 +218,31 @@ margin_bottom = 23.8245
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.219608, 0.54902, 0.337255, 1 )
 text = "Elementos del mapa"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FakeSoundsAmount" type="HSlider" parent="."]
+margin_left = 880.0
+margin_top = 464.756
+margin_right = 960.0
+margin_bottom = 498.756
+max_value = 1.0
+step = 0.1
+value = 0.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="FakeSoundsAmount"]
+margin_left = -150.0
+margin_top = 8.0
+margin_right = -11.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.709804, 0.498039, 1 )
+text = "Sonidos aleatorios"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
