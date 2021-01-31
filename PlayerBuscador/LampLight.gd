@@ -26,6 +26,7 @@ func turn_on():
 	tween.start()
 	get_tree().call_group("PLAYER_LIGHT", "colorize")
 	get_tree().call_group("LAMP_LISTENER", "on_lamp_used")
+	$AudioStreamPlayer.play()
 
 func _on_Tween_tween_all_completed():
 	enabled = false

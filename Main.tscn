@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ProceduralLevel.tscn" type="PackedScene" id=2]
@@ -46,6 +46,7 @@
 [ext_resource path="res://Textures/Menu/reinicio/reinicio_0006_menu-encima.png" type="Texture" id=44]
 [ext_resource path="res://Textures/Menu/reinicio/reinicio_0010_duracion.png" type="Texture" id=45]
 [ext_resource path="res://Textures/Menu/reinicio/reinicio_0011_logo.png" type="Texture" id=46]
+[ext_resource path="res://Audio/Effects/lampSound.wav" type="AudioStream" id=47]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -313,6 +314,9 @@ __meta__ = {
 }
 ready_texture = ExtResource( 30 )
 used_texture = ExtResource( 28 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HUD/LampCounter"]
+stream = ExtResource( 47 )
 
 [node name="EndScreen" type="Control" parent="CanvasLayer/HUD"]
 anchor_right = 1.0

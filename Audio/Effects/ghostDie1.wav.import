@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ghostDie1.wav-a538e87a65b0ad3f924bc7c3b26dac38.sample"
+
+[deps]
+
+source_file="res://Audio/Effects/ghostDie1.wav"
+dest_files=[ "res://.import/ghostDie1.wav-a538e87a65b0ad3f924bc7c3b26dac38.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
