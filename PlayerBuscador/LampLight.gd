@@ -16,7 +16,7 @@ var time : int
 
 func turn_on():
 	if not ready: return
-	area.set_collision_layer_bit(0, true)
+	area.set_collision_layer_bit(15, true)
 	enabled = true
 	running = true
 	ready = false
@@ -29,7 +29,7 @@ func turn_on():
 
 func _on_Tween_tween_all_completed():
 	enabled = false
-	area.set_collision_layer_bit(0, false)
+	area.set_collision_layer_bit(15, false)
 	running = false
 	timer.start()
 
