@@ -46,7 +46,7 @@
 [ext_resource path="res://Textures/Menu/reinicio/reinicio_0006_menu-encima.png" type="Texture" id=44]
 [ext_resource path="res://Textures/Menu/reinicio/reinicio_0010_duracion.png" type="Texture" id=45]
 [ext_resource path="res://Textures/Menu/reinicio/reinicio_0011_logo.png" type="Texture" id=46]
-[ext_resource path="res://Audio/Effects/lampSound.wav" type="AudioStream" id=47]
+[ext_resource path="res://Audio/Effects/lampSound.ogg" type="AudioStream" id=47]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -317,6 +317,7 @@ used_texture = ExtResource( 28 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HUD/LampCounter"]
 stream = ExtResource( 47 )
+volume_db = -14.0
 
 [node name="EndScreen" type="Control" parent="CanvasLayer/HUD"]
 anchor_right = 1.0

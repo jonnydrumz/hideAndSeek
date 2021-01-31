@@ -25,7 +25,6 @@ func death():
 	remove_from_group("GHOST")
 	tween.connect("tween_all_completed", get_tree(), "call_group", ["ENEMY_DEATH_LISTENER", "on_enemy_death"])
 	tween.connect("tween_all_completed", tween, "queue_free")
-	tween.connect("tween_all_completed", self, "queue_free")
 	tween.interpolate_property(self, "scale:x",
 			scale.x, .0, .5, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
 	tween.start()
@@ -34,6 +33,8 @@ func death():
 	$TimerSteps.stop()
 	$TimerShow.stop()
 	$AudioStreamPlayer.play()
+	yield($AudioStreamPlayer, "finished")
+	queue_free()
 
 func _ready():
 	yield(get_tree().create_timer(rand_range(.25, 5.0)), "timeout")
