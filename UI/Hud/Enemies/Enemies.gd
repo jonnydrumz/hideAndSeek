@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+signal game_completed
+
 export(Texture) var item_texture : Texture
 
 func on_enemy_death():
@@ -11,6 +13,8 @@ func _ready():
 func _update_skulls():
 	_clear_skulls()
 	_add_skulls()
+	if get_child_count() <= 0:
+		emit_signal("game_completed")
 
 func _clear_skulls():
 	for child in get_children():
