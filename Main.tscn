@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ProceduralLevel.tscn" type="PackedScene" id=2]
@@ -47,6 +47,7 @@
 [ext_resource path="res://Textures/Menu/reinicio/reinicio_0010_duracion.png" type="Texture" id=45]
 [ext_resource path="res://Textures/Menu/reinicio/reinicio_0011_logo.png" type="Texture" id=46]
 [ext_resource path="res://Audio/Effects/lampSound.ogg" type="AudioStream" id=47]
+[ext_resource path="res://Audio/Sfx/StartButton.ogg" type="AudioStream" id=48]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -394,7 +395,7 @@ __meta__ = {
 
 [node name="RetryButton" type="TextureButton" parent="CanvasLayer/HUD/EndScreen"]
 margin_left = 240.0
-margin_top = 504.0
+margin_top = 492.0
 margin_right = 448.0
 margin_bottom = 544.0
 texture_normal = ExtResource( 41 )
@@ -405,9 +406,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HUD/EndScreen/RetryButton"]
+stream = ExtResource( 48 )
+volume_db = -5.0
+
 [node name="QuitButton" type="TextureButton" parent="CanvasLayer/HUD/EndScreen"]
 margin_left = 608.0
-margin_top = 504.0
+margin_top = 489.0
 margin_right = 760.0
 margin_bottom = 544.0
 texture_normal = ExtResource( 42 )
@@ -417,6 +422,10 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HUD/EndScreen/QuitButton"]
+stream = ExtResource( 48 )
+volume_db = -5.0
 
 [node name="FadeIn" type="ColorRect" parent="CanvasLayer/HUD"]
 visible = false

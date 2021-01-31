@@ -12,9 +12,11 @@ func _end_open_animation():
 	$AnimationPlayer.play("Anim")
 
 func _on_RetryButton_pressed():
+	$RetryButton/AudioStreamPlayer.play()
 	emit_signal("retry_pressed")
 
 func _on_QuitButton_pressed():
+	$QuitButton/AudioStreamPlayer.play()
 	emit_signal("quit_pressed")
 
 func _str_time(secs : int)-> String:
