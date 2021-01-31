@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Menu/fondo.png" type="Texture" id=2]
@@ -11,7 +11,10 @@
 [ext_resource path="res://Textures/Menu/fantasma2.png" type="Texture" id=9]
 [ext_resource path="res://Textures/Menu/textos.png" type="Texture" id=10]
 [ext_resource path="res://Textures/Menu/Fonts/ARIALNB.TTF" type="DynamicFontData" id=11]
-[ext_resource path="res://Audio/Ost/Title.ogg" type="AudioStream" id=12]
+[ext_resource path="res://FadeIn.gd" type="Script" id=12]
+[ext_resource path="res://Audio/Ost/Title.ogg" type="AudioStream" id=13]
+[ext_resource path="res://FadeOut.gd" type="Script" id=14]
+[ext_resource path="res://Textures/Menu/Instrucciones_dificultad.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 11 )
@@ -87,6 +90,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="instrucciones" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Iniciar" type="TextureButton" parent="."]
 anchor_left = 0.445
 anchor_top = 0.795
@@ -100,10 +112,10 @@ __meta__ = {
 }
 
 [node name="EnemyNumber" type="HSlider" parent="."]
-margin_left = 875.0
-margin_top = 347.092
-margin_right = 958.0
-margin_bottom = 381.092
+margin_left = 880.0
+margin_top = 359.092
+margin_right = 960.0
+margin_bottom = 393.092
 min_value = 1.0
 max_value = 30.0
 value = 5.0
@@ -112,6 +124,7 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="EnemyNumber"]
+visible = false
 margin_left = -148.063
 margin_top = 7.94461
 margin_right = -9.06317
@@ -125,10 +138,10 @@ __meta__ = {
 }
 
 [node name="MapHeight" type="HSlider" parent="."]
-margin_left = 875.848
-margin_top = 388.566
-margin_right = 958.848
-margin_bottom = 422.566
+margin_left = 880.0
+margin_top = 384.566
+margin_right = 960.0
+margin_bottom = 418.566
 min_value = 3.0
 max_value = 10.0
 value = 4.0
@@ -137,6 +150,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="MapHeight"]
+visible = false
 margin_left = -191.911
 margin_top = 7.47012
 margin_right = -5.91064
@@ -150,10 +164,10 @@ __meta__ = {
 }
 
 [node name="MapWidth" type="HSlider" parent="."]
-margin_left = 875.848
-margin_top = 427.566
-margin_right = 958.848
-margin_bottom = 461.566
+margin_left = 880.0
+margin_top = 412.0
+margin_right = 960.0
+margin_bottom = 446.0
 min_value = 3.0
 max_value = 10.0
 value = 4.0
@@ -162,6 +176,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="MapWidth"]
+visible = false
 margin_left = -175.911
 margin_top = 7.47012
 margin_right = -7.91064
@@ -175,15 +190,16 @@ __meta__ = {
 }
 
 [node name="GraveAmount" type="HSlider" parent="."]
-margin_left = 876.435
-margin_top = 469.212
-margin_right = 959.435
-margin_bottom = 503.212
+margin_left = 880.0
+margin_top = 438.212
+margin_right = 960.0
+margin_bottom = 472.212
 max_value = 1.0
 step = 0.05
 value = 0.1
 
 [node name="Label3" type="Label" parent="GraveAmount"]
+visible = false
 margin_left = -150.498
 margin_top = 4.82449
 margin_right = -11.498
@@ -197,6 +213,28 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
-volume_db = -6.0
+stream = ExtResource( 13 )
+autoplay = true
+
+[node name="FadeIn" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 12 )
+
+[node name="Tween" type="Tween" parent="FadeIn"]
+
+[node name="FadeOut" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 14 )
+
+[node name="Tween" type="Tween" parent="FadeOut"]
 [connection signal="pressed" from="Iniciar" to="." method="_on_Iniciar_pressed"]
+[connection signal="fade_out_done" from="FadeOut" to="." method="_on_FadeOut_fade_out_done"]
+[connection signal="tween_all_completed" from="FadeOut/Tween" to="FadeOut" method="_on_Tween_tween_all_completed"]
