@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ProceduralLevel.tscn" type="PackedScene" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://Textures/Hud/lamp_counter.png" type="Texture" id=28]
 [ext_resource path="res://UI/Hud/Lamp/LampCounter.gd" type="Script" id=29]
 [ext_resource path="res://Textures/Hud/lamp_counter_on.png" type="Texture" id=30]
+[ext_resource path="res://UI/Hud/FadeIn/FadeIn.gd" type="Script" id=31]
+[ext_resource path="res://Music.gd" type="Script" id=32]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -183,10 +185,11 @@ texture = ExtResource( 22 )
 script = ExtResource( 16 )
 direction = 7
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Ingame"]
+[node name="Music" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource( 8 )
-volume_db = -6.0
+volume_db = -80.0
 autoplay = true
+script = ExtResource( 32 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -225,4 +228,17 @@ __meta__ = {
 }
 ready_texture = ExtResource( 30 )
 used_texture = ExtResource( 28 )
+
+[node name="FadeIn" type="ColorRect" parent="CanvasLayer/HUD"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="CanvasLayer/HUD/FadeIn"]
 [connection signal="timeout" from="FakeSoundGenerator/Timer" to="FakeSoundGenerator" method="_on_Timer_timeout"]
+[connection signal="tween_all_completed" from="CanvasLayer/HUD/FadeIn/Tween" to="CanvasLayer/HUD/FadeIn" method="_on_Tween_tween_all_completed"]
