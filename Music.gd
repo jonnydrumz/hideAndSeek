@@ -11,5 +11,14 @@ func _ready():
 	tween.start()
 	tween.connect("tween_all_completed", tween, "queue_free")
 
+func fade_out():
+	var tween : Tween = Tween.new()
+	add_child(tween)
+	tween.interpolate_property(self, "volume_db",
+			volume_db, -80.0, 2.0,
+			Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	tween.start()
+	tween.connect("tween_all_completed", tween, "queue_free")
+
 func _enter():
 	volume_db = -80.0

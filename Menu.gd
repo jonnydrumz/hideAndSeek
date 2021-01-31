@@ -2,6 +2,8 @@ extends Control
 
 func _on_Iniciar_pressed():
 	$FadeOut.fade_out()
+	$Music.fade_out()
+	$Iniciar.disabled = true
 
 func _on_FadeOut_fade_out_done():
 	LevelConfiguration.map_height = $MapHeight.value
