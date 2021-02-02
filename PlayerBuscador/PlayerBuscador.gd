@@ -4,6 +4,7 @@ export(Array,Texture) var player_textures : Array
 
 export(float) var player_speed : float = 64.0
 export(float) var animation_speed : float = 2.0
+export(float) var player_life : float = 5.0
 
 onready var sprite    : Sprite  = $Sprite
 onready var candle    : Light2D = $Candle
@@ -17,6 +18,8 @@ onready var angle    : float   = .0
 onready var player_speed_y : float = player_speed * .5
 
 func _physics_process(delta : float):
+	if player_life < 1.0:
+		die()
 	_move(delta)
 	_action(delta)
 	_animate(delta)
@@ -57,12 +60,22 @@ func _animate(delta : float):
 		animator.play("Stop", .25)
 		if walk_sfx.playing:
 			walk_sfx.stop()
-
+		
 func _lamp_turn_on():
 	lamplight.turn_on()
 
+func hurt():
+	player_life = player_life - 1.0
+	
+func die():
+	print("Character died")
+	
 func _respawn():
 	global_position = Vector2.ZERO
 
 func _ready():
 	call_deferred("_respawn")
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("GHOST"):
+		hurt()

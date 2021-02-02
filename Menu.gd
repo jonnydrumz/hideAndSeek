@@ -17,3 +17,7 @@ func _on_FadeOut_fade_out_done():
 	LevelConfiguration.fakesounds_amount = $FakeSoundsAmount.value
 	get_tree().change_scene("Main.tscn")
 
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("Online.tscn")

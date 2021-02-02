@@ -295,7 +295,15 @@ stream = ExtResource( 13 )
 volume_db = -80.0
 autoplay = true
 script = ExtResource( 16 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 842.068
+margin_top = 262.968
+margin_right = 930.068
+margin_bottom = 299.968
+text = "ONLINE"
 [connection signal="pressed" from="Iniciar" to="." method="_on_Iniciar_pressed"]
 [connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
 [connection signal="fade_out_done" from="FadeOut" to="." method="_on_FadeOut_fade_out_done"]
 [connection signal="tween_all_completed" from="FadeOut/Tween" to="FadeOut" method="_on_Tween_tween_all_completed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

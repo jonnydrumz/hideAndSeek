@@ -88,5 +88,5 @@ func _on_TimerShow_timeout():
 		visibilization_tween.interpolate_property(self, "modulate:a", modulate.a, 1.0, 0.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		visibilization_tween.start()
 		enemy_visible = true
-	set_collision_mask_bit(0, enemy_visible)
+#	set_collision_mask_bit(0, enemy_visible)
 	set_collision_layer_bit(0, enemy_visible)
