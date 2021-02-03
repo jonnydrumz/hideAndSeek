@@ -78,7 +78,7 @@ remote func pre_start_game(spawn_points):
 	var world = load("Main.tscn").instance()
 	get_tree().get_root().add_child(world)
 
-	get_tree().get_root().get_node("Online").hide()
+	get_tree().get_root().get_node("Menu").hide()
 
 	#TODO: Cargar los personajes en el juego
 #	var player_scene = load("PlayerBuscador.tscn")
