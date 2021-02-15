@@ -1,0 +1,472 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://GhostBusterManager.gd" type="Script" id=1]
+[ext_resource path="res://UI/Hud/Enemies/Enemies.gd" type="Script" id=2]
+[ext_resource path="res://Textures/Player/ruido_0004_Capa-6-copia-2.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Player/ruido_0005_Capa-6-copia-2.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Scenario/FloorTile.png" type="Texture" id=5]
+[ext_resource path="res://Textures/Player/ruido_0007_Capa-6.png" type="Texture" id=6]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0003_farol-(combinado).png" type="Texture" id=7]
+[ext_resource path="res://UI/Hud/FadeIn/FadeIn.gd" type="Script" id=8]
+[ext_resource path="res://Textures/Player/ruido_0003_Capa-5.png" type="Texture" id=9]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0006_menu-encima.png" type="Texture" id=10]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0010_duracion.png" type="Texture" id=11]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0011_logo.png" type="Texture" id=12]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0007_reiniciar-encima.png" type="Texture" id=13]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0005_reiniciar-iluminado.png" type="Texture" id=14]
+[ext_resource path="res://Music.gd" type="Script" id=15]
+[ext_resource path="res://UI/Hud/EndScreen/EndScreen.gd" type="Script" id=16]
+[ext_resource path="res://Textures/Menu/Fonts/ARIALNB.TTF" type="DynamicFontData" id=17]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0009_reiniciar.png" type="Texture" id=18]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0004_menuiluminado.png" type="Texture" id=19]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0008_menu.png" type="Texture" id=20]
+[ext_resource path="res://Textures/Hud/lamp_counter.png" type="Texture" id=21]
+[ext_resource path="res://SoundLocatorManager.gd" type="Script" id=22]
+[ext_resource path="res://Audio/Ost/HideAndSeek.ogg" type="AudioStream" id=23]
+[ext_resource path="res://FadeOut.gd" type="Script" id=24]
+[ext_resource path="res://PlayerBuscador/PlayerBuscador.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Textures/Hud/lamp_counter_on.png" type="Texture" id=27]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0012_Capa-33.png" type="Texture" id=28]
+[ext_resource path="res://UI/Hud/Lamp/LampCounter.gd" type="Script" id=29]
+[ext_resource path="res://Textures/Player/ruido_0002_Capa-5-copia.png" type="Texture" id=30]
+[ext_resource path="res://MainSinglePlayer.gd" type="Script" id=31]
+[ext_resource path="res://Textures/Scenario/TodoNegro.png" type="Texture" id=32]
+[ext_resource path="res://Textures/Player/ruido_0000_Capa-5-copia-3.png" type="Texture" id=33]
+[ext_resource path="res://Textures/Player/ruido_0001_Capa-5-copia-2.png" type="Texture" id=34]
+[ext_resource path="res://Audio/Sfx/FakeSounds/Cat02.wav" type="AudioStream" id=35]
+[ext_resource path="res://Audio/Sfx/FakeSounds/Cat03.wav" type="AudioStream" id=36]
+[ext_resource path="res://FakeSoundGenerator.gd" type="Script" id=37]
+[ext_resource path="res://FakeAudio/FakeAudio.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Textures/Hud/contador_fantasmas.png" type="Texture" id=39]
+[ext_resource path="res://Audio/Sfx/FakeSounds/Cat01.wav" type="AudioStream" id=40]
+[ext_resource path="res://Audio/Effects/lampSound.ogg" type="AudioStream" id=41]
+[ext_resource path="res://Audio/Sfx/StartButton.ogg" type="AudioStream" id=42]
+[ext_resource path="res://Life.gd" type="Script" id=43]
+[ext_resource path="res://Textures/Player/ruido_0006_Capa-6-copia.png" type="Texture" id=44]
+[ext_resource path="res://Ground.gd" type="Script" id=45]
+[ext_resource path="res://Textures/Menu/reinicio/reinicio_0002_farol_iluminado.png" type="Texture" id=46]
+[ext_resource path="res://EaredSound.gd" type="Script" id=47]
+[ext_resource path="res://EnemyGenerator.gd" type="Script" id=48]
+[ext_resource path="res://ProceduralLevel.tscn" type="PackedScene" id=49]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+background_canvas_max_layer = 1
+glow_enabled = true
+glow_intensity = 0.56
+glow_strength = 0.85
+glow_bloom = 0.1
+glow_blend_mode = 1
+glow_hdr_threshold = 0.07
+glow_bicubic_upscale = true
+
+[sub_resource type="DynamicFont" id=2]
+size = 70
+use_filter = true
+font_data = ExtResource( 17 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Anim"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Candle1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_end_open_animation"
+} ]
+}
+
+[node name="Main" type="Node"]
+script = ExtResource( 31 )
+
+[node name="EnemyGenerator" type="Node" parent="."]
+script = ExtResource( 48 )
+enemy_template = ExtResource( 26 )
+radius = 256
+destination_nodepath = NodePath("../Ingame/ProceduralLevel")
+
+[node name="GhostBusterManager" type="Node" parent="." groups=[
+"GBM",
+]]
+script = ExtResource( 1 )
+
+[node name="SoundLocatorManager" type="Node" parent="." groups=[
+"SLM",
+]]
+script = ExtResource( 22 )
+player_nodepath = NodePath("../Ingame/ProceduralLevel/Player")
+
+[node name="FakeSoundGenerator" type="Node2D" parent="."]
+script = ExtResource( 37 )
+audio_template = ExtResource( 38 )
+audio_streams = [ ExtResource( 40 ), ExtResource( 35 ), ExtResource( 36 ) ]
+
+[node name="Timer" type="Timer" parent="FakeSoundGenerator"]
+autostart = true
+
+[node name="Ingame" type="Node2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Ingame"]
+environment = SubResource( 1 )
+
+[node name="Ground" type="Node2D" parent="Ingame"]
+script = ExtResource( 45 )
+floor_texture = ExtResource( 5 )
+
+[node name="ProceduralLevel" parent="Ingame" instance=ExtResource( 49 )]
+
+[node name="Player" parent="Ingame/ProceduralLevel" instance=ExtResource( 25 )]
+
+[node name="Camera2D" type="Camera2D" parent="Ingame/ProceduralLevel/Player"]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="CameraCosas" type="Node2D" parent="Ingame/ProceduralLevel/Player/Camera2D"]
+
+[node name="TodoNegro" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas"]
+scale = Vector2( 0.5, 0.5 )
+z_index = 50
+texture = ExtResource( 32 )
+
+[node name="EaredUp" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 0, -88 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 9 )
+script = ExtResource( 47 )
+
+[node name="EaredDown" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 0, 88 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 30 )
+script = ExtResource( 47 )
+direction = 1
+
+[node name="EaredLeft" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( -192, 0 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 34 )
+script = ExtResource( 47 )
+direction = 2
+
+[node name="EaredRight" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 192, 0 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 33 )
+script = ExtResource( 47 )
+direction = 3
+
+[node name="EaredUpLeft" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( -48, 24 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 4 )
+script = ExtResource( 47 )
+direction = 4
+
+[node name="EaredUpRight" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 48, 24 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 3 )
+script = ExtResource( 47 )
+direction = 5
+
+[node name="EaredDownLeft" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( -48, -24 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 6 )
+script = ExtResource( 47 )
+direction = 6
+
+[node name="EaredDownRight" type="Sprite" parent="Ingame/ProceduralLevel/Player/Camera2D/CameraCosas" groups=[
+"AUDIO_LOCATOR_LISTENER",
+]]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 48, -24 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 50
+texture = ExtResource( 44 )
+script = ExtResource( 47 )
+direction = 7
+
+[node name="Music" type="AudioStreamPlayer" parent="Ingame" groups=[
+"MUSIC",
+]]
+stream = ExtResource( 23 )
+volume_db = -80.0
+autoplay = true
+script = ExtResource( 15 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemies" type="HBoxContainer" parent="CanvasLayer/HUD" groups=[
+"ENEMY_DEATH_LISTENER",
+]]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+item_texture = ExtResource( 39 )
+
+[node name="Life" type="HBoxContainer" parent="CanvasLayer/HUD"]
+margin_left = 1000.0
+margin_right = 1040.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 43 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LampCounter" type="TextureRect" parent="CanvasLayer/HUD" groups=[
+"LAMP_LISTENER",
+]]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -96.0
+margin_right = 64.0
+margin_bottom = -5.0
+texture = ExtResource( 21 )
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ready_texture = ExtResource( 27 )
+used_texture = ExtResource( 21 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HUD/LampCounter"]
+stream = ExtResource( 41 )
+volume_db = -14.0
+
+[node name="EndScreen" type="Control" parent="CanvasLayer/HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fondo" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 28 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Candle2" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Candle1" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
+modulate = Color( 1, 1, 1, 0.990116 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeValue" type="Label" parent="CanvasLayer/HUD/EndScreen"]
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.4
+margin_left = 32.0
+margin_top = -40.0
+margin_bottom = -3.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.219608, 0.54902, 0.439216, 1 )
+text = "33:59"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reinicio_0010_duracion" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/HUD/EndScreen"]
+anims/Anim = SubResource( 3 )
+anims/Open = SubResource( 4 )
+
+[node name="reinicio_0011_logo" type="TextureRect" parent="CanvasLayer/HUD/EndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" type="TextureButton" parent="CanvasLayer/HUD/EndScreen"]
+margin_left = 240.0
+margin_top = 492.0
+margin_right = 448.0
+margin_bottom = 544.0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HUD/EndScreen/RetryButton"]
+stream = ExtResource( 42 )
+volume_db = -5.0
+
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer/HUD/EndScreen"]
+margin_left = 608.0
+margin_top = 489.0
+margin_right = 760.0
+margin_bottom = 544.0
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HUD/EndScreen/QuitButton"]
+stream = ExtResource( 42 )
+volume_db = -5.0
+
+[node name="FadeIn" type="ColorRect" parent="CanvasLayer/HUD"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="CanvasLayer/HUD/FadeIn"]
+
+[node name="FadeOut" type="ColorRect" parent="CanvasLayer/HUD" groups=[
+"FADEOUT",
+]]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 24 )
+
+[node name="Tween" type="Tween" parent="CanvasLayer/HUD/FadeOut"]
+[connection signal="timeout" from="FakeSoundGenerator/Timer" to="FakeSoundGenerator" method="_on_Timer_timeout"]
+[connection signal="game_completed" from="CanvasLayer/HUD/Enemies" to="." method="_on_Enemies_game_completed"]
+[connection signal="quit_pressed" from="CanvasLayer/HUD/EndScreen" to="." method="_on_EndScreen_quit_pressed"]
+[connection signal="retry_pressed" from="CanvasLayer/HUD/EndScreen" to="." method="_on_EndScreen_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/EndScreen/RetryButton" to="CanvasLayer/HUD/EndScreen" method="_on_RetryButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/EndScreen/QuitButton" to="CanvasLayer/HUD/EndScreen" method="_on_QuitButton_pressed"]
+[connection signal="tween_all_completed" from="CanvasLayer/HUD/FadeIn/Tween" to="CanvasLayer/HUD/FadeIn" method="_on_Tween_tween_all_completed"]
+[connection signal="fade_out_done" from="CanvasLayer/HUD/FadeOut" to="." method="_on_FadeOut_fade_out_done"]
+[connection signal="tween_all_completed" from="CanvasLayer/HUD/FadeOut/Tween" to="CanvasLayer/HUD/FadeOut" method="_on_Tween_tween_all_completed"]
