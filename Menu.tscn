@@ -21,7 +21,7 @@
 [ext_resource path="res://Textures/Menu/inicio_0001_salir-copia-2-(combinado)-copia-2.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=1]
-size = 10
+size = 20
 use_filter = true
 font_data = ExtResource( 11 )
 
@@ -122,10 +122,10 @@ stream = ExtResource( 17 )
 volume_db = -5.0
 
 [node name="Salir" type="TextureButton" parent="."]
-anchor_left = 0.8
-anchor_top = 0.795
-anchor_right = 0.8
-anchor_bottom = 0.878
+anchor_left = 0.811
+anchor_top = 0.817
+anchor_right = 0.854
+anchor_bottom = 0.9
 margin_left = 55.8
 margin_top = 38.0
 margin_right = 142.8
@@ -142,10 +142,10 @@ stream = ExtResource( 17 )
 volume_db = -5.0
 
 [node name="EnemyNumber" type="HSlider" parent="."]
-margin_left = 880.0
-margin_top = 359.092
-margin_right = 960.0
-margin_bottom = 393.092
+margin_left = 1650.0
+margin_top = 659.982
+margin_right = 1810.0
+margin_bottom = 693.982
 min_value = 1.0
 max_value = 30.0
 value = 5.0
@@ -153,51 +153,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="EnemyNumber"]
-visible = false
-margin_left = -148.063
-margin_top = 7.94461
-margin_right = -9.06317
-margin_bottom = 26.9446
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.219608, 0.54902, 0.337255, 1 )
-text = "Número de enemigos"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="MapHeight" type="HSlider" parent="."]
-margin_left = 880.0
-margin_top = 384.566
-margin_right = 960.0
-margin_bottom = 418.566
+margin_left = 1650.0
+margin_top = 706.729
+margin_right = 1810.0
+margin_bottom = 740.729
 min_value = 3.0
 max_value = 10.0
 value = 4.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="MapHeight"]
-visible = false
-margin_left = -191.911
-margin_top = 7.47012
-margin_right = -5.91064
-margin_bottom = 26.4701
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.219608, 0.54902, 0.337255, 1 )
-text = "Tamaño del mapa (horizontal)"
-align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MapWidth" type="HSlider" parent="."]
-margin_left = 879.719
-margin_top = 412.0
-margin_right = 959.719
-margin_bottom = 446.0
+margin_left = 1650.0
+margin_top = 754.221
+margin_right = 1810.0
+margin_bottom = 788.221
 min_value = 3.0
 max_value = 10.0
 value = 4.0
@@ -205,25 +177,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MapWidth"]
-visible = false
-margin_left = -175.911
-margin_top = 7.47012
-margin_right = -7.91064
-margin_bottom = 26.4701
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.219608, 0.54902, 0.337255, 1 )
-text = "Tamaño del mapa (vertical)"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="GraveAmount" type="HSlider" parent="."]
-margin_left = 880.0
-margin_top = 437.931
-margin_right = 960.0
-margin_bottom = 471.931
+margin_left = 1650.33
+margin_top = 802.064
+margin_right = 1810.33
+margin_bottom = 836.064
 max_value = 1.0
 step = 0.05
 value = 0.1
@@ -231,25 +189,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="GraveAmount"]
-visible = false
-margin_left = -150.498
-margin_top = 4.82449
-margin_right = -11.498
-margin_bottom = 23.8245
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.219608, 0.54902, 0.337255, 1 )
-text = "Elementos del mapa"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FakeSoundsAmount" type="HSlider" parent="."]
-margin_left = 880.0
-margin_top = 464.756
-margin_right = 960.0
-margin_bottom = 498.756
+margin_left = 1650.0
+margin_top = 846.835
+margin_right = 1810.0
+margin_bottom = 880.835
 max_value = 1.0
 step = 0.1
 value = 0.4
@@ -258,10 +202,10 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="FakeSoundsAmount"]
-margin_left = -150.0
-margin_top = 8.0
-margin_right = -11.0
-margin_bottom = 24.0
+margin_left = -160.944
+margin_top = 3.39459
+margin_right = -11.9438
+margin_bottom = 27.3946
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0.709804, 0.498039, 1 )
 text = "Sonidos aleatorios"
@@ -297,11 +241,14 @@ autoplay = true
 script = ExtResource( 16 )
 
 [node name="ButtonOnline" type="Button" parent="."]
-margin_left = 842.068
-margin_top = 262.968
-margin_right = 930.068
-margin_bottom = 299.968
+margin_left = 1637.89
+margin_top = 487.857
+margin_right = 1737.89
+margin_bottom = 537.857
 text = "ONLINE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ButtonOnlineVolver" type="Button" parent="."]
 visible = false
